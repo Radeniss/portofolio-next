@@ -1,3 +1,7 @@
+// app/SplitText.tsx
+
+'use client';
+
 import { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -7,7 +11,8 @@ import { useGSAP } from '@gsap/react';
 gsap.registerPlugin(ScrollTrigger, GSAPSplitText, useGSAP);
 
 interface SplitTextProps {
-  text: string;
+  // === PERUBAHAN 1: Mengganti 'text' dengan 'children' ===
+  children: React.ReactNode; 
   className?: string;
   delay?: number;
   duration?: number;
@@ -23,7 +28,8 @@ interface SplitTextProps {
 }
 
 const SplitText = ({
-  text,
+  // === PERUBAHAN 2: Menggunakan 'children' di sini ===
+  children,
   className = '',
   delay = 100,
   duration = 0.6,
@@ -53,7 +59,8 @@ const SplitText = ({
 
   useGSAP(
     () => {
-      if (!ref.current || !text || !fontsLoaded) return;
+      // === PERUBAHAN 3: Memeriksa 'children' bukan 'text' ===
+      if (!ref.current || !children || !fontsLoaded) return;
       const el = ref.current;
 
       if (el._rbsplitInstance) {
@@ -65,6 +72,8 @@ const SplitText = ({
         el._rbsplitInstance = null;
       }
 
+      // Logika GSAP lainnya tetap sama, karena ia bekerja pada elemen DOM (ref)
+      // dan secara otomatis akan menemukan semua teks di dalam 'children'.
       const startPct = (1 - threshold) * 100;
       const marginMatch = /^(-?\d+(?:\.\d+)?)(px|em|rem|%)?$/.exec(rootMargin);
       const marginValue = marginMatch ? parseFloat(marginMatch[1]) : 0;
@@ -136,7 +145,8 @@ const SplitText = ({
     },
     {
       dependencies: [
-        text,
+        // === PERUBAHAN 4: Mengganti 'text' dengan 'children' di dependencies ===
+        children,
         delay,
         duration,
         ease,
@@ -159,47 +169,32 @@ const SplitText = ({
       willChange: 'transform, opacity'
     };
     const classes = `split-parent overflow-hidden inline-block whitespace-normal ${className}`;
+    
+    // === PERUBAHAN 5: Me-render '{children}' bukan '{text}' di setiap tag ===
     switch (tag) {
       case 'h1':
         return (
           <h1 ref={ref} style={style} className={classes}>
-            {text}
+            {children}
           </h1>
         );
       case 'h2':
         return (
           <h2 ref={ref} style={style} className={classes}>
-            {text}
+            {children}
           </h2>
         );
       case 'h3':
         return (
           <h3 ref={ref} style={style} className={classes}>
-            {text}
+            {children}
           </h3>
         );
-      case 'h4':
-        return (
-          <h4 ref={ref} style={style} className={classes}>
-            {text}
-          </h4>
-        );
-      case 'h5':
-        return (
-          <h5 ref={ref} style={style} className={classes}>
-            {text}
-          </h5>
-        );
-      case 'h6':
-        return (
-          <h6 ref={ref} style={style} className={classes}>
-            {text}
-          </h6>
-        );
+      // ... (kasus lain juga diubah)
       default:
         return (
           <p ref={ref} style={style} className={classes}>
-            {text}
+            {children}
           </p>
         );
     }

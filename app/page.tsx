@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, Download, Code, Palette, Globe } from 'lucide-react'
@@ -37,13 +39,26 @@ export default function Home() {
           
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-slide-in">
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            <div className="">
+              <SplitText
+                tag="h1"
+                className="text-4xl md:text-6xl font-bold text-white mb-6 text-center"
+                delay={100}
+                duration={0.6}
+                ease="power3.out"
+                splitType="chars"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+                onLetterAnimationComplete={handleAnimationComplete}
+              >
+                Hello, I'm <span className="text-blue-300">mahelbee</span>
+              </SplitText>
+              {/* <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
                 Hi, I&apos;m{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-400">
                   mahelbee
                 </span>
-              </h1>
+              </h1> */}
               <h2 className="text-xl md:text-2xl text-primary-100 mb-6">
                 Full-Stack Developer & UI/UX Designer
               </h2>
@@ -60,10 +75,6 @@ export default function Home() {
                   <Download className="h-5 w-5 ml-2" />
                 </button>
               </div>
-            </div>
-
-            <div>
-              <SplitText text="Welcome to my portfolio!" />
             </div>
 
             <div className="relative animate-fade-in">
