@@ -1,4 +1,4 @@
-// File: C:\Users\bee\Downloads\project-bolt-sb1-ejbgpovc\project\app\certificates\page.tsx
+// File: F:\github\Javascript\portofolio-next\app\certificates\page.tsx
 import * as entry from '../../../../app/certificates/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
