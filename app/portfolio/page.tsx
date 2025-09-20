@@ -106,7 +106,7 @@ export default function Portfolio() {
                     height={200}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                  {/* <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
                     <a
                       href={item.liveUrl}
                       className="bg-white text-slate-800 p-3 rounded-full hover:bg-primary-100 transition-colors transform hover:scale-110"
@@ -121,7 +121,7 @@ export default function Portfolio() {
                     >
                       <Github className="h-5 w-5" />
                     </a>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="p-6">
                   <div className="text-sm text-primary-600 font-medium mb-2">

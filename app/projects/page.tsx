@@ -137,7 +137,7 @@ export default function Projects() {
                   <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(project.status)}`}>
                     {project.status}
                   </span>
-                  <div className="flex space-x-2">
+                  {/* <div className="flex space-x-2">
                     <a 
                       href={project.githubUrl} 
                       className="text-slate-400 hover:text-slate-600 transition-colors"
@@ -152,7 +152,7 @@ export default function Projects() {
                     >
                       <ExternalLink className="h-5 w-5" />
                     </a>
-                  </div>
+                  </div> */}
                 </div>
                 
                 <h3 className="text-2xl font-bold text-slate-800 mb-3 group-hover:text-primary-600 transition-colors">
@@ -217,7 +217,7 @@ export default function Projects() {
                   <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(project.status)}`}>
                     {project.status}
                   </span>
-                  <div className="flex space-x-2">
+                  {/* <div className="flex space-x-2">
                     <a 
                       href={project.githubUrl} 
                       className="text-slate-400 hover:text-slate-600 transition-colors"
@@ -232,7 +232,7 @@ export default function Projects() {
                     >
                       <ExternalLink className="h-5 w-5" />
                     </a>
-                  </div>
+                  </div> */}
                 </div>
                 
                 <h3 className="text-xl font-bold text-slate-800 mb-3 group-hover:text-primary-600 transition-colors">

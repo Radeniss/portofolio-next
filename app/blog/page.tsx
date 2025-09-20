@@ -183,13 +183,13 @@ export default function Blog() {
                   ))}
                 </div>
                 
-                <Link 
+                {/* <Link 
                   href={`/blog/${post.slug}`}
                   className="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold group-hover:translate-x-1 transition-transform"
                 >
                   Read More 
                   <ArrowRight className="h-4 w-4 ml-1" />
-                </Link>
+                </Link> */}
               </article>
             ))}
           </div>
@@ -259,13 +259,13 @@ export default function Blog() {
                         ))}
                       </div>
                       
-                      <Link 
+                      {/* <Link 
                         href={`/blog/${post.slug}`}
                         className="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold hover:translate-x-1 transition-transform"
                       >
                         Read More 
                         <ArrowRight className="h-4 w-4 ml-1" />
-                      </Link>
+                      </Link> */}
                     </div>
                   </div>
                 </div>
