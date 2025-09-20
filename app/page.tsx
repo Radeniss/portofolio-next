@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, Download, Code, Palette, Globe } from 'lucide-react'
+import SplitText from './SplitText'
 
 export default function Home() {
   const skills = [
@@ -20,6 +21,10 @@ export default function Home() {
       desc: 'Figma, Adobe XD, user-centered design and responsive web design' 
     },
   ]
+
+  const handleAnimationComplete = () => {
+    console.log('All letters have animated!');
+  };
 
   return (
     <div className="pt-16">
@@ -55,6 +60,10 @@ export default function Home() {
                   <Download className="h-5 w-5 ml-2" />
                 </button>
               </div>
+            </div>
+
+            <div>
+              <SplitText text="Welcome to my portfolio!" />
             </div>
 
             <div className="relative animate-fade-in">
