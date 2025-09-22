@@ -33,10 +33,9 @@ export default function Home() {
       {/* Hero Section */}
       <section className="min-h-screen flex items-center"
         style={{ 
-          backgroundImage: "url('/img/background.png')",
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
-          backgroundBlendMode: "overlay"}}>
-          
+          backgroundColor: "#03001C"
+        }}
+      >          
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="">
@@ -53,12 +52,6 @@ export default function Home() {
               >
                 Hello, I'm <span className="text-blue-300">mahelbee</span>
               </SplitText>
-              {/* <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                Hi, I&apos;m{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-400">
-                  mahelbee
-                </span>
-              </h1> */}
               <h2 className="text-xl md:text-2xl text-primary-100 mb-6">
                 Full-Stack Developer & UI/UX Designer
               </h2>

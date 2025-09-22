@@ -18,7 +18,7 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
+  
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'Portfolio', path: '/portfolio' },
@@ -30,12 +30,19 @@ const Navbar = () => {
   const isActive = (path: string) => pathname === path
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-bwhite/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
-    }`}>
+    <nav className={`
+      fixed top-4 left-1/2 -translate-x-1/2 z-50
+      w-11/12 max-w-3xl h-16
+      rounded-full border border-white/20
+      shadow-md transition-all duration-300
+      flex justify-between items-center
+      ${isScrolled 
+        ? 'bg-white/30 backdrop-blur-lg' 
+        : 'bg-white/10 backdrop-blur-lg'
+      }`
+    }>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
             <Code2 className={`h-8 w-8 transition-colors ${
               isScrolled ? 'text-primary-600' : 'text-black'
