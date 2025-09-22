@@ -664,29 +664,17 @@ video {
 .inset-8 {
   inset: 2rem;
 }
-.left-0 {
-  left: 0px;
+.left-1\/2 {
+  left: 50%;
 }
 .left-4 {
   left: 1rem;
 }
-.right-0 {
-  right: 0px;
-}
 .right-4 {
   right: 1rem;
 }
-.top-0 {
-  top: 0px;
-}
 .top-4 {
   top: 1rem;
-}
-.left-1\/2 {
-  left: 50%;
-}
-.top-full {
-  top: 100%;
 }
 .z-50 {
   z-index: 50;
@@ -749,9 +737,6 @@ video {
 }
 .mt-8 {
   margin-top: 2rem;
-}
-.mt-2 {
-  margin-top: 0.5rem;
 }
 .line-clamp-2 {
   overflow: hidden;
@@ -816,6 +801,9 @@ video {
 .min-h-screen {
   min-height: 100vh;
 }
+.w-11\/12 {
+  width: 91.666667%;
+}
 .w-16 {
   width: 4rem;
 }
@@ -840,11 +828,11 @@ video {
 .w-full {
   width: 100%;
 }
-.w-11\/12 {
-  width: 91.666667%;
-}
 .max-w-2xl {
   max-width: 42rem;
+}
+.max-w-3xl {
+  max-width: 48rem;
 }
 .max-w-4xl {
   max-width: 56rem;
@@ -858,17 +846,8 @@ video {
 .max-w-xl {
   max-width: 36rem;
 }
-.max-w-5xl {
-  max-width: 64rem;
-}
-.max-w-3xl {
-  max-width: 48rem;
-}
 .flex-1 {
   flex: 1 1 0%;
-}
-.shrink-0 {
-  flex-shrink: 0;
 }
 .flex-grow {
   flex-grow: 1;
@@ -1094,6 +1073,10 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(254 226 226 / var(--tw-bg-opacity, 1));
 }
+.bg-secondary-950 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(3 0 28 / var(--tw-bg-opacity, 1));
+}
 .bg-slate-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(241 245 249 / var(--tw-bg-opacity, 1));
@@ -1106,16 +1089,9 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(30 41 59 / var(--tw-bg-opacity, 1));
 }
-.bg-transparent {
-  background-color: transparent;
-}
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
-}
-.bg-yellow-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 249 195 / var(--tw-bg-opacity, 1));
 }
 .bg-white\/10 {
   background-color: rgb(255 255 255 / 0.1);
@@ -1123,8 +1099,9 @@ video {
 .bg-white\/30 {
   background-color: rgb(255 255 255 / 0.3);
 }
-.bg-white\/50 {
-  background-color: rgb(255 255 255 / 0.5);
+.bg-yellow-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 249 195 / var(--tw-bg-opacity, 1));
 }
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
@@ -1177,10 +1154,6 @@ video {
 }
 .to-transparent {
   --tw-gradient-to: transparent var(--tw-gradient-to-position);
-}
-.bg-clip-text {
-  -webkit-background-clip: text;
-          background-clip: text;
 }
 .object-cover {
   -o-object-fit: cover;
@@ -1308,9 +1281,6 @@ video {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity, 1));
 }
-.text-black\/90 {
-  color: rgb(0 0 0 / 0.9);
-}
 .text-blue-300 {
   --tw-text-opacity: 1;
   color: rgb(147 197 253 / var(--tw-text-opacity, 1));
@@ -1375,9 +1345,6 @@ video {
   --tw-text-opacity: 1;
   color: rgb(30 41 59 / var(--tw-text-opacity, 1));
 }
-.text-transparent {
-  color: transparent;
-}
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
@@ -1389,6 +1356,10 @@ video {
 .text-yellow-800 {
   --tw-text-opacity: 1;
   color: rgb(133 77 14 / var(--tw-text-opacity, 1));
+}
+.text-primary-1000 {
+  --tw-text-opacity: 1;
+  color: rgb(3 0 28 / var(--tw-text-opacity, 1));
 }
 .opacity-0 {
   opacity: 0;
@@ -1420,11 +1391,6 @@ video {
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
-.backdrop-blur-sm {
-  --tw-backdrop-blur: blur(4px);
-  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-}
 .backdrop-blur-lg {
   --tw-backdrop-blur: blur(16px);
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
@@ -1447,13 +1413,6 @@ video {
 }
 .transition-transform {
   transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-.transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -1522,12 +1481,9 @@ video {
   background-color: rgb(255 255 255 / 0.1);
 }
 
-.hover\:bg-slate-100\/50:hover {
-  background-color: rgb(241 245 249 / 0.5);
-}
-
-.hover\:bg-white\/20:hover {
-  background-color: rgb(255 255 255 / 0.2);
+.hover\:text-primary-1000:hover {
+  --tw-text-opacity: 1;
+  color: rgb(3 0 28 / var(--tw-text-opacity, 1));
 }
 
 .hover\:text-primary-600:hover {
@@ -1545,11 +1501,6 @@ video {
   color: rgb(45 212 191 / var(--tw-text-opacity, 1));
 }
 
-.hover\:text-secondary-500:hover {
-  --tw-text-opacity: 1;
-  color: rgb(20 184 166 / var(--tw-text-opacity, 1));
-}
-
 .hover\:text-slate-600:hover {
   --tw-text-opacity: 1;
   color: rgb(71 85 105 / var(--tw-text-opacity, 1));
@@ -1558,6 +1509,16 @@ video {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-primary-500:hover {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-secondary-500:hover {
+  --tw-text-opacity: 1;
+  color: rgb(20 184 166 / var(--tw-text-opacity, 1));
 }
 
 .hover\:shadow-2xl:hover {
@@ -1710,10 +1671,6 @@ video {
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
-  }
-
-  .lg\:text-left {
-    text-align: left;
   }
 }
 

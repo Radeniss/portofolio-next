@@ -65,8 +65,8 @@ const Navbar = () => {
                     isActive(item.path)
                       ? 'bg-primary-600 text-white'
                       : isScrolled
-                      ? 'text-slate-700 hover:bg-slate-100 hover:text-primary-600'
-                      : 'text-black/90 hover:bg-white/10 hover:text-secondary-500'
+                      ? 'text-primary-1000 hover:bg-slate-100 hover:text-primary-600'
+                      : 'text-white hover:bg-white/10 hover:text-secondary-500'
                   }`}
                 >
                   {item.name}

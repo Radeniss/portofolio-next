@@ -1,3 +1,5 @@
+const { Back } = require('gsap');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -19,6 +21,7 @@ module.exports = {
           700: '#1d4ed8',
           800: '#1e40af',
           900: '#1e3a8a',
+          1000:'#03001C',
         },
         secondary: {
           50: '#f0fdfa',
@@ -31,6 +34,7 @@ module.exports = {
           700: '#0f766e',
           800: '#115e59',
           900: '#134e4a',
+          950: '#03001C',
         },
       },
       fontFamily: {
