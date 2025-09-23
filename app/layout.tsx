@@ -27,7 +27,29 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen bg-secondary-950 relative`}>
+      {/* <body className={`${inter.className} min-h-screen bg-secondary-950 relative`}> */}
+        <body style={{
+          width: '100%',
+          height: '100vh',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          zIndex: -20,
+          backgroundColor: '#03001C',
+        }}>
+          <Particles
+            particleColors={['#ffffff', '#ffffff']}
+            particleCount={200}
+            particleSpread={10}
+            speed={0.1}
+            particleBaseSize={100}
+            moveParticlesOnHover={true}
+            alphaParticles={false}
+            disableRotation={false}
+            className=""
+            ></Particles>
+
+        {/* </div> */}
         <Navbar />
         <main className="flex-grow">
           {children}

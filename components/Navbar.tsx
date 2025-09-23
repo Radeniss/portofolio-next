@@ -46,7 +46,6 @@ const Navbar = () => {
         : 'bg-white/10 backdrop-blur-lg'
       }`}
     >
-      {/* Menghapus div lama dan memindahkan isinya ke sini untuk tata letak yang benar */}
       <div className="flex justify-between items-center h-full w-full">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2 group shrink-0">

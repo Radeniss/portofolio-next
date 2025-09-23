@@ -33,23 +33,10 @@ export default function Home() {
     <div className="pt-16">
       {/* Hero Section */}
       <section className="min-h-screen flex items-center relative"
-        style={{ 
-          backgroundColor: "#03001C"
-        }}
+        // style={{ 
+        //   backgroundColor: "#03001C"
+        // }}
       >
-        {/* <div className="absolute inset-0 z-0">
-          <Particles
-            particleColors={['#ffffff', '#ffffff']}
-            particleCount={200}
-            particleSpread={10}
-            speed={0.1}
-            particleBaseSize={100}
-            moveParticlesOnHover={true}
-            alphaParticles={false}
-            disableRotation={false} className={undefined}
-          />
-        </div> */}
-        
         {/* The rest of the content is now on top */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -106,7 +93,7 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section className="py-10 bg-primary-1000">
+      <section className="py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-300 mb-4">
