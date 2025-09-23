@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import Particles from './Particles';
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen bg-secondary-950`}>
+      <body className={`${inter.className} min-h-screen bg-secondary-950 relative`}>
         <Navbar />
         <main className="flex-grow">
           {children}
@@ -33,5 +35,5 @@ export default function RootLayout({
         <Footer />
       </body>
     </html>
-  )
+  );
 }
