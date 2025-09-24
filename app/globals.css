@@ -59,6 +59,19 @@
   pointer-events: none;
 }
 
+.split-char, .split-word, .split-line {
+  display: inline-block;
+}
+
+/* Pastikan span di dalam SplitText tetap mempertahankan styling-nya */
+.split-parent span {
+  display: inline;
+}
+
+.split-parent .text-blue-300 {
+  color: #93c5fd; /* atau warna blue-300 Anda */
+}
+
 /* Pastikan canvas particles tidak mengganggu interaksi */
 canvas {
   pointer-events: none;

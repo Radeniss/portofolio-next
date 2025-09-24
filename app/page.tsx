@@ -6,88 +6,93 @@
   import SplitText from './SplitText'
 
 
-  export default function Home() {
-    const skills = [
-      { 
-        icon: Code, 
-        name: 'Frontend Development', 
-        desc: 'React, Next.js, TypeScript, Vue.js with modern build tools and best practices' 
-      },
-      { 
-        icon: Globe, 
-        name: 'Backend Development', 
-        desc: 'Node.js, Python, PostgreSQL, REST APIs and microservices architecture' 
-      },
-      { 
-        icon: Palette, 
-        name: 'UI/UX Design', 
-        desc: 'Figma, Adobe XD, user-centered design and responsive web design' 
-      },
-    ]
+export default function Home() {
+  const skills = [
+    { 
+      icon: Code, 
+      name: 'Frontend Development', 
+      desc: 'React, Next.js, TypeScript, Vue.js with modern build tools and best practices' 
+    },
+    { 
+      icon: Globe, 
+      name: 'Backend Development', 
+      desc: 'Node.js, Python, PostgreSQL, REST APIs and microservices architecture' 
+    },
+    { 
+      icon: Palette, 
+      name: 'UI/UX Design', 
+      desc: 'Figma, Adobe XD, user-centered design and responsive web design' 
+    },
+  ]
 
-    const handleAnimationComplete = () => {
-      console.log('All letters have animated!');
-    };
+  const handleAnimationComplete = () => {
+    console.log('SplitText animation completed!');
+  };
 
-    return (
-      <div className="pt-16">
-        {/* Hero Section */}
-        <section className="min-h-screen flex items-center relative"
-        >
-          {/* The rest of the content is now on top */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="">
-                <SplitText
-                  tag="h1"
-                  className="text-4xl md:text-6xl font-bold text-white mb-6 text-center"
-                  delay={100}
-                  duration={0.6}
-                  ease="power3.out"
-                  splitType="chars"
-                  from={{ opacity: 0, y: 40 }}
-                  to={{ opacity: 1, y: 0 }}
-                  onLetterAnimationComplete={handleAnimationComplete}
-                >
-                  Hello, I'm <span className="text-blue-300">mahelbee</span>
-                </SplitText>
-                <h2 className="text-xl md:text-2xl text-primary-100 mb-6">
-                  Full-Stack Developer & UI/UX Designer
-                </h2>
-                <p className="text-lg text-slate-300 mb-8 max-w-xl leading-relaxed">
-                  I love the evolution of the modern world, with features that make it easier for me to complete various tasks. Let's learn together and grow to be better.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="/portfolio" className="btn-primary inline-flex items-center justify-center">
-                    View My Work
-                    <ArrowRight className="h-5 w-5 ml-2" />
-                  </Link>
-                  <button className="btn-secondary inline-flex items-center justify-center">
-                    Download CV
-                    <Download className="h-5 w-5 ml-2" />
-                  </button>
-                </div>
+//   useEffect(() => {
+//   console.log('Homepage mounted, SplitText should animate');
+// }, []);
+
+  return (
+    <div className="pt-16">
+      {/* Hero Section */}
+      <section className="min-h-screen flex items-center relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="">
+              {/* PERBAIKAN: Gunakan children bukan prop text */}
+              <SplitText
+                tag="h1"
+                className="text-4xl md:text-6xl font-bold text-white mb-6 text-center"
+                delay={100}
+                duration={0.6}
+                ease="power3.out"
+                splitType="chars"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+                onLetterAnimationComplete={handleAnimationComplete}
+              >
+                {/* Konten sebagai children */}
+                Hello, I'm <span className="text-blue-300">mahelbee</span>
+              </SplitText>
+              
+              <h2 className="text-xl md:text-2xl text-primary-100 mb-6">
+                Full-Stack Developer & UI/UX Designer
+              </h2>
+              <p className="text-lg text-slate-300 mb-8 max-w-xl leading-relaxed">
+                I love the evolution of the modern world, with features that make it easier for me to complete various tasks. Let's learn together and grow to be better.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/portfolio" className="btn-primary inline-flex items-center justify-center">
+                  View My Work
+                  <ArrowRight className="h-5 w-5 ml-2" />
+                </Link>
+                <button className="btn-secondary inline-flex items-center justify-center">
+                  Download CV
+                  <Download className="h-5 w-5 ml-2" />
+                </button>
               </div>
+            </div>
 
-              <div className="relative animate-fade-in">
-                <div className="w-80 h-80 mx-auto relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-secondary-400 rounded-full opacity-20 animate-pulse"></div>
-                  <div className="absolute inset-4 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full opacity-40"></div>
-                  <div className="absolute inset-8 rounded-full overflow-hidden border-4 border-white shadow-2xl">
-                    <Image
-                      src="/img/me.png"
-                      alt="mahelbee"
-                      width={256}
-                      height={256}
-                      className="object-covear"
-                      priority
-                    />
-                  </div>
+            <div className="relative animate-fade-in">
+              <div className="w-80 h-80 mx-auto relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-secondary-400 rounded-full opacity-20 animate-pulse"></div>
+                <div className="absolute inset-4 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full opacity-40"></div>
+                <div className="absolute inset-8 rounded-full overflow-hidden border-4 border-white shadow-2xl">
+                  <Image
+                    src="/img/me.png"
+                    alt="mahelbee"
+                    width={256}
+                    height={256}
+                    className="object-cover w-full h-full"
+                    priority
+                  />
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* Skills Section */}
         <section className="py-10">
