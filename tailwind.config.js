@@ -21,7 +21,7 @@ module.exports = {
           700: '#1d4ed8',
           800: '#1e40af',
           900: '#1e3a8a',
-          1000:'#03001C',
+          1000: '#03001C',
         },
         secondary: {
           50: '#f0fdfa',
@@ -55,13 +55,15 @@ module.exports = {
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
       },
-      spacing: {
-        '128': '32rem',
-        '144': '36rem',
-      },
-
-      
+      transitionDelay: {
+        '0': '0ms',
+        '200': '200ms',
+        '400': '400ms',
+        '500': '500ms',
+        '600': '600ms',
+        '700': '700ms',
+      }
     },
   },
   plugins: [],
-}
+};

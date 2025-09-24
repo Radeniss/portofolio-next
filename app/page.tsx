@@ -29,9 +29,6 @@ export default function Home() {
     console.log('SplitText animation completed!');
   };
 
-//   useEffect(() => {
-//   console.log('Homepage mounted, SplitText should animate');
-// }, []);
 
   return (
     <div className="pt-16">
@@ -40,7 +37,6 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="">
-              {/* PERBAIKAN: Gunakan children bukan prop text */}
               <SplitText
                 tag="h1"
                 className="text-4xl md:text-6xl font-bold text-white mb-6 text-center"
@@ -52,22 +48,21 @@ export default function Home() {
                 to={{ opacity: 1, y: 0 }}
                 onLetterAnimationComplete={handleAnimationComplete}
               >
-                {/* Konten sebagai children */}
                 Hello, I'm <span className="text-blue-300">mahelbee</span>
               </SplitText>
               
-              <h2 className="text-xl md:text-2xl text-primary-100 mb-6">
+              <h2 className="text-xl md:text-2xl text-primary-100 mb-6 animate-slide-in">
                 Full-Stack Developer & UI/UX Designer
               </h2>
-              <p className="text-lg text-slate-300 mb-8 max-w-xl leading-relaxed">
+              <p className="text-lg text-slate-300 mb-8 max-w-xl leading-relaxed animate-slide-in">
                 I love the evolution of the modern world, with features that make it easier for me to complete various tasks. Let's learn together and grow to be better.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/portfolio" className="btn-primary inline-flex items-center justify-center">
+                <Link href="/portfolio" className="btn-primary inline-flex items-center justify-center animate-slide-in delay-500">
                   View My Work
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Link>
-                <button className="btn-secondary inline-flex items-center justify-center">
+                <button className="btn-secondary inline-flex items-center justify-center animate-slide-in delay-600">
                   Download CV
                   <Download className="h-5 w-5 ml-2" />
                 </button>

@@ -49,7 +49,6 @@
   pointer-events: auto;
 }
 
-/* Pastikan particles container benar-benar di belakang */
 .fixed.-z-10 {
   z-index: -10;
   pointer-events: none;
@@ -63,16 +62,14 @@
   display: inline-block;
 }
 
-/* Pastikan span di dalam SplitText tetap mempertahankan styling-nya */
 .split-parent span {
   display: inline;
 }
 
 .split-parent .text-blue-300 {
-  color: #93c5fd; /* atau warna blue-300 Anda */
+  color: #93c5fd;
 }
 
-/* Pastikan canvas particles tidak mengganggu interaksi */
 canvas {
   pointer-events: none;
 }
@@ -91,3 +88,4 @@ div[class*="Particles"] > canvas {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   }
 }
+
