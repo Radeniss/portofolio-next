@@ -1,3 +1,4 @@
+// Particles.tsx
 'use client';
 
 import { useEffect, useRef } from 'react';
@@ -5,7 +6,7 @@ import { Renderer, Camera, Geometry, Program, Mesh } from 'ogl';
 
 const defaultColors = ['#ffffff', '#ffffff', '#ffffff'];
 
-const hexToRgb = hex => {
+const hexToRgb = (hex: string) => {
   hex = hex.replace(/^#/, '');
   if (hex.length === 3) {
     hex = hex
@@ -51,11 +52,12 @@ const vertex = /* glsl */ `
     
     vec4 mvPos = viewMatrix * mPos;
 
-    if (uSizeRandomness == 0.0) {
-      gl_PointSize = uBaseSize;
-    } else {
-      gl_PointSize = (uBaseSize * (1.0 + uSizeRandomness * (random.x - 0.5))) / length(mvPos.xyz);
+    // Fix: Add proper size calculation
+    float pointSize = uBaseSize;
+    if (uSizeRandomness > 0.0) {
+      pointSize *= (1.0 + uSizeRandomness * (random.x - 0.5));
     }
+    gl_PointSize = pointSize / length(mvPos.xyz);
 
     gl_Position = projectionMatrix * mvPos;
   }
@@ -85,6 +87,21 @@ const fragment = /* glsl */ `
   }
 `;
 
+interface ParticlesProps {
+  particleCount?: number;
+  particleSpread?: number;
+  speed?: number;
+  particleColors?: string[];
+  moveParticlesOnHover?: boolean;
+  particleHoverFactor?: number;
+  alphaParticles?: boolean;
+  particleBaseSize?: number;
+  sizeRandomness?: number;
+  cameraDistance?: number;
+  disableRotation?: boolean;
+  className?: string;
+}
+
 const Particles = ({
   particleCount = 200,
   particleSpread = 10,
@@ -97,42 +114,52 @@ const Particles = ({
   sizeRandomness = 1,
   cameraDistance = 20,
   disableRotation = false,
-  className
-}) => {
-  const containerRef = useRef(null);
+  className = ""
+}: ParticlesProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
+  const animationFrameId = useRef<number>(0);
 
   useEffect(() => {
-    const container = containerRef.current;
+  const container = containerRef.current;
+  if (!container) return;
+
+  const renderer = new Renderer({ depth: false, alpha: true });
+  const gl = renderer.gl;
+  gl.canvas.style.display = 'block';
+  container.appendChild(gl.canvas);
+  gl.clearColor(0, 0, 0, 0);
+
+  const camera = new Camera(gl, { fov: 15 });
+  camera.position.set(0, 0, cameraDistance);
+
+  const handleResize = () => {
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+    renderer.setSize(width, height);
+    camera.perspective({ aspect: gl.canvas.width / gl.canvas.height });
+  };
+
+  window.addEventListener('resize', handleResize, false);
+  handleResize();
+
+  const handleMouseMove = (e: MouseEvent) => {
     if (!container) return;
+    const rect = container.getBoundingClientRect();
+    
+    // Hitung posisi mouse relatif terhadap container particles
+    const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    const y = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
+    
+    mouseRef.current = { x, y };
+  };
 
-    const renderer = new Renderer({ depth: false, alpha: true });
-    const gl = renderer.gl;
-    container.appendChild(gl.canvas);
-    gl.clearColor(0, 0, 0, 0);
-
-    const camera = new Camera(gl, { fov: 15 });
-    camera.position.set(0, 0, cameraDistance);
-
-    const resize = () => {
-      const width = container.clientWidth;
-      const height = container.clientHeight;
-      renderer.setSize(width, height);
-      camera.perspective({ aspect: gl.canvas.width / gl.canvas.height });
-    };
-    window.addEventListener('resize', resize, false);
-    resize();
-
-    const handleMouseMove = e => {
-      const rect = container.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-      const y = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
-      mouseRef.current = { x, y };
-    };
-
-    if (moveParticlesOnHover) {
-      container.addEventListener('mousemove', handleMouseMove);
-    }
+  if (moveParticlesOnHover) {
+    // Gunakan document/window sebagai event listener, bukan container
+    document.addEventListener('mousemove', handleMouseMove);
+    // Tetap nonaktifkan pointer events pada container
+    container.style.pointerEvents = 'none';
+  }
 
     const count = particleCount;
     const positions = new Float32Array(count * 3);
@@ -177,25 +204,28 @@ const Particles = ({
 
     const particles = new Mesh(gl, { mode: gl.POINTS, geometry, program });
 
-    let animationFrameId;
     let lastTime = performance.now();
     let elapsed = 0;
 
-    const update = t => {
-      animationFrameId = requestAnimationFrame(update);
+    const update = (t: number) => {
+      animationFrameId.current = requestAnimationFrame(update);
       const delta = t - lastTime;
       lastTime = t;
       elapsed += delta * speed;
 
       program.uniforms.uTime.value = elapsed * 0.001;
 
-      if (moveParticlesOnHover) {
-        particles.position.x = -mouseRef.current.x * particleHoverFactor;
-        particles.position.y = -mouseRef.current.y * particleHoverFactor;
-      } else {
-        particles.position.x = 0;
-        particles.position.y = 0;
-      }
+if (moveParticlesOnHover) {
+  // Gunakan interpolasi yang lebih responsif
+  const targetX = -mouseRef.current.x * particleHoverFactor * 2; // Perbesar faktor
+  const targetY = -mouseRef.current.y * particleHoverFactor * 2;
+  
+  particles.position.x += (targetX - particles.position.x) * 0.15; // Lebih cepat
+  particles.position.y += (targetY - particles.position.y) * 0.15;
+} else {
+  particles.position.x = 0;
+  particles.position.y = 0;
+}
 
       if (!disableRotation) {
         particles.rotation.x = Math.sin(elapsed * 0.0002) * 0.1;
@@ -206,20 +236,20 @@ const Particles = ({
       renderer.render({ scene: particles, camera });
     };
 
-    animationFrameId = requestAnimationFrame(update);
+    animationFrameId.current = requestAnimationFrame(update);
 
-    return () => {
-      window.removeEventListener('resize', resize);
-      if (moveParticlesOnHover) {
-        container.removeEventListener('mousemove', handleMouseMove);
-      }
-      cancelAnimationFrame(animationFrameId);
-      if (container.contains(gl.canvas)) {
-        container.removeChild(gl.canvas);
-      }
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
+      return () => {
+    window.removeEventListener('resize', handleResize);
+    if (moveParticlesOnHover) {
+      // Hapus event listener dari document
+      document.removeEventListener('mousemove', handleMouseMove);
+    }
+    cancelAnimationFrame(animationFrameId.current);
+    if (container.contains(gl.canvas)) {
+      container.removeChild(gl.canvas);
+    }
+  };
+}, [
     particleCount,
     particleSpread,
     speed,
@@ -232,7 +262,13 @@ const Particles = ({
     disableRotation
   ]);
 
-  return <div ref={containerRef} className={`relative w-full h-full ${className}`} />;
+  return (
+    <div 
+      ref={containerRef} 
+      className={`w-full h-full ${className}`}
+      style={{ pointerEvents: moveParticlesOnHover ? 'auto' : 'none' }}
+    />
+  );
 };
 
 export default Particles;

@@ -1,12 +1,11 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import Particles from './Particles';
 
-
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'mahelbee - Full Stack Developer',
@@ -18,43 +17,38 @@ export const metadata: Metadata = {
     description: 'Professional portfolio showcasing modern web development projects',
     type: 'website',
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      {/* <body className={`${inter.className} min-h-screen bg-secondary-950 relative`}> */}
-        <body style={{
-          width: '100%',
-          height: '100vh',
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          zIndex: -20,
-          backgroundColor: '#03001C',
-        }}>
-          <Particles
-            particleColors={['#ffffff', '#ffffff']}
-            particleCount={200}
-            particleSpread={10}
-            speed={0.1}
-            particleBaseSize={100}
-            moveParticlesOnHover={true}
-            alphaParticles={false}
-            disableRotation={false}
-            className=""
-            ></Particles>
-
-        {/* </div> */}
-        <Navbar />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
+      <body className={`${inter.className} relative min-h-screen bg-secondary-950`}>
+          
+<Particles
+  particleColors={['#ffffff', '#e5e5e5', '#d4d4d4']}
+  particleCount={200}
+  particleSpread={15} // Lebih menyebar
+  speed={0.1} // Sedikit lebih cepat
+  particleBaseSize={120} // Size lebih besar
+  moveParticlesOnHover={true}
+  particleHoverFactor={1.5} // Efek hover lebih kuat
+  alphaParticles={true}
+  disableRotation={false}
+  className="fixed top-0 left-0 w-full h-screen -z-10"
+/>
+        <div className="relative z-10 flex flex-col min-h-screen isolate">
+          <Navbar />
+          
+          <main className="flex-grow">
+            {children}
+            
+          </main>
+          <Footer />
+        </div>  
       </body>
     </html>
   );

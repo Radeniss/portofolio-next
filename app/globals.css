@@ -28,6 +28,49 @@
   .gradient-bg {
     @apply bg-gradient-to-br from-slate-900 via-primary-900 to-secondary-800;
   }
+
+  .fixed {
+  position: fixed;
+}
+
+.-z-10 {
+  z-index: -10;
+}
+
+.isolate {
+  isolation: isolate;
+}
+
+.relative.z-10 {
+  pointer-events: none;
+}
+
+.relative.z-10 > * {
+  pointer-events: auto;
+}
+
+/* Pastikan particles container benar-benar di belakang */
+.fixed.-z-10 {
+  z-index: -10;
+  pointer-events: none;
+}
+
+.fixed.-z-10 > canvas {
+  pointer-events: none;
+}
+
+/* Pastikan canvas particles tidak mengganggu interaksi */
+canvas {
+  pointer-events: none;
+}
+
+div[class*="Particles"] {
+  pointer-events: none;
+}
+
+div[class*="Particles"] > canvas {
+  pointer-events: none;
+}
 }
 
 @layer utilities {

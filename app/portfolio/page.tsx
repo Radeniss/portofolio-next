@@ -75,8 +75,8 @@ export default function Portfolio() {
       {/* Header */}
       <section className="py-20"
       style={{ 
-          backgroundImage: "url('/img/background.png')",
-          backgroundColor: "rgba(0, 0, 0, 0.5)", // Warna hitam dengan opacity 50%
+          // backgroundImage: "url('/img/background.png')",
+          // backgroundColor: "rgba(0, 0, 0, 0.5)", // Warna hitam dengan opacity 50%
           backgroundBlendMode: "overlay"}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 animate-slide-in">
@@ -89,7 +89,7 @@ export default function Portfolio() {
       </section>
 
       {/* Portfolio Grid */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {portfolioItems.map((item, index) => (

@@ -106,8 +106,8 @@ export default function Projects() {
       {/* Header */}
       <section className="py-20"
       style={{ 
-          backgroundImage: "url('/img/background.png')",
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          // backgroundImage: "url('/img/background.png')",
+          // backgroundColor: "rgba(0, 0, 0, 0.5)",
           backgroundBlendMode: "overlay"}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 animate-slide-in">
@@ -120,7 +120,7 @@ export default function Projects() {
       </section>
 
       {/* Featured Projects */}
-      <section className="py-20 bg-white">
+      <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-slate-800 mb-12 text-center">
             Featured Projects
