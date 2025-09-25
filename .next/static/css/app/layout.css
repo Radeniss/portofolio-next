@@ -673,6 +673,23 @@ div[class*="Particles"] {
 div[class*="Particles"] > canvas {
   pointer-events: none;
 }
+.word {
+  display: inline-block;
+  white-space: nowrap;
+}
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+/* Improve performance for GSAP animations */
+.word {
+  will-change: transform, opacity, filter;
+}
+/* Ensure proper spacing */
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
 .pointer-events-none {
   pointer-events: none;
 }
@@ -687,12 +704,6 @@ div[class*="Particles"] > canvas {
 }
 .inset-0 {
   inset: 0px;
-}
-.inset-4 {
-  inset: 1rem;
-}
-.inset-8 {
-  inset: 2rem;
 }
 .left-0 {
   left: 0px;
@@ -749,6 +760,10 @@ div[class*="Particles"] > canvas {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 .mb-1 {
   margin-bottom: 0.25rem;
@@ -973,15 +988,6 @@ div[class*="Particles"] > canvas {
 .animate-fade-in {
   animation: fadeIn 0.5s ease-in-out;
 }
-@keyframes pulse {
-
-  50% {
-    opacity: .5;
-  }
-}
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
 @keyframes slideIn {
 
   0% {
@@ -1081,6 +1087,9 @@ div[class*="Particles"] > canvas {
 .whitespace-nowrap {
   white-space: nowrap;
 }
+.whitespace-pre {
+  white-space: pre;
+}
 .rounded {
   border-radius: 0.25rem;
 }
@@ -1107,9 +1116,6 @@ div[class*="Particles"] > canvas {
 }
 .border-2 {
   border-width: 2px;
-}
-.border-4 {
-  border-width: 4px;
 }
 .border-\[3px\] {
   border-width: 3px;
@@ -1242,16 +1248,6 @@ div[class*="Particles"] > canvas {
   --tw-gradient-to: rgb(219 234 254 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
-.from-primary-400 {
-  --tw-gradient-from: #60a5fa var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(96 165 250 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-.from-primary-500 {
-  --tw-gradient-from: #3b82f6 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(59 130 246 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
 .from-primary-600 {
   --tw-gradient-from: #2563eb var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(37 99 235 / 0) var(--tw-gradient-to-position);
@@ -1259,12 +1255,6 @@ div[class*="Particles"] > canvas {
 }
 .to-secondary-100 {
   --tw-gradient-to: #ccfbf1 var(--tw-gradient-to-position);
-}
-.to-secondary-400 {
-  --tw-gradient-to: #2dd4bf var(--tw-gradient-to-position);
-}
-.to-secondary-500 {
-  --tw-gradient-to: #14b8a6 var(--tw-gradient-to-position);
 }
 .to-secondary-600 {
   --tw-gradient-to: #0d9488 var(--tw-gradient-to-position);
@@ -1315,10 +1305,6 @@ div[class*="Particles"] > canvas {
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-}
-.py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
 }
 .py-12 {
   padding-top: 3rem;
@@ -1399,6 +1385,9 @@ div[class*="Particles"] > canvas {
 }
 .font-semibold {
   font-weight: 600;
+}
+.leading-\[1\.5\] {
+  line-height: 1.5;
 }
 .leading-relaxed {
   line-height: 1.625;
@@ -1494,12 +1483,6 @@ div[class*="Particles"] > canvas {
 .opacity-0 {
   opacity: 0;
 }
-.opacity-20 {
-  opacity: 0.2;
-}
-.opacity-40 {
-  opacity: 0.4;
-}
 .opacity-80 {
   opacity: 0.8;
 }
@@ -1520,6 +1503,10 @@ div[class*="Particles"] > canvas {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.blur {
+  --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
