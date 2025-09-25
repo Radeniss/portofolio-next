@@ -4,6 +4,7 @@
   import Image from 'next/image'
   import { ArrowRight, Download, Code, Palette, Globe } from 'lucide-react'
   import SplitText from './SplitText'
+  import TiltedCard from './TiltedCard';
 
 
 export default function Home() {
@@ -71,16 +72,25 @@ export default function Home() {
 
             <div className="relative animate-fade-in">
               <div className="w-80 h-80 mx-auto relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-secondary-400 rounded-full opacity-20 animate-pulse"></div>
-                <div className="absolute inset-4 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full opacity-40"></div>
-                <div className="absolute inset-8 rounded-full overflow-hidden border-4 border-white shadow-2xl">
-                  <Image
-                    src="/img/me.png"
-                    alt="mahelbee"
-                    width={256}
-                    height={256}
-                    className="object-cover w-full h-full"
-                    priority
+                <div className="absolute shadow-2xl">
+                  <TiltedCard
+                    imageSrc="/img/me.png"
+                    altText="mahelbee - GNX Album Cover"
+                    captionText="it's me brohh.."
+                    containerHeight="300px"
+                    containerWidth="300px"
+                    imageHeight="300px"
+                    imageWidth="300px"
+                    rotateAmplitude={12}
+                    scaleOnHover={1.2}
+                    showMobileWarning={false}
+                    showTooltip={true}
+                    displayOverlayContent={true}
+                    overlayContent={
+                      <p className="tilted-card-demo-text">
+                        
+                      </p>
+                    }
                   />
                 </div>
               </div>
