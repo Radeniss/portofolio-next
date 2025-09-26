@@ -1,7 +1,4 @@
-// ScrollReveal.tsx - Versi Sederhana
-'use client';
-
-import { useEffect, useRef, ReactNode } from 'react';
+import React, { useEffect, useRef, useMemo, ReactNode, RefObject } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -9,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface ScrollRevealProps {
   children: ReactNode;
-  scrollContainerRef?: React.RefObject<HTMLElement>;
+  scrollContainerRef?: RefObject<HTMLElement>;
   enableBlur?: boolean;
   baseOpacity?: number;
   baseRotation?: number;
@@ -18,11 +15,9 @@ interface ScrollRevealProps {
   textClassName?: string;
   rotationEnd?: string;
   wordAnimationEnd?: string;
-  as?: keyof JSX.IntrinsicElements;
-  stagger?: number;
 }
 
-const ScrollReveal = ({
+const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children,
   scrollContainerRef,
   enableBlur = true,
@@ -32,21 +27,28 @@ const ScrollReveal = ({
   containerClassName = '',
   textClassName = '',
   rotationEnd = 'bottom bottom',
-  wordAnimationEnd = 'bottom bottom',
-  as = 'h2',
-  stagger = 0.05
-}: ScrollRevealProps) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLElement>(null);
+  wordAnimationEnd = 'bottom bottom'
+}) => {
+  const containerRef = useRef<HTMLHeadingElement>(null);
+
+  const splitText = useMemo(() => {
+    const text = typeof children === 'string' ? children : '';
+    return text.split(/(\s+)/).map((word, index) => {
+      if (word.match(/^\s+$/)) return word;
+      return (
+        <span className="inline-block word" key={index}>
+          {word}
+        </span>
+      );
+    });
+  }, [children]);
 
   useEffect(() => {
     const el = containerRef.current;
-    const textEl = textRef.current;
-    if (!el || !textEl) return;
+    if (!el) return;
 
-    const scroller = scrollContainerRef?.current || window;
+    const scroller = scrollContainerRef && scrollContainerRef.current ? scrollContainerRef.current : window;
 
-    // Rotation animation pada container
     gsap.fromTo(
       el,
       { transformOrigin: '0% 50%', rotate: baseRotation },
@@ -63,18 +65,15 @@ const ScrollReveal = ({
       }
     );
 
-    // Animasi pada teks (opacity dan blur)
+    const wordElements = el.querySelectorAll<HTMLElement>('.word');
+
     gsap.fromTo(
-      textEl,
-      { 
-        opacity: baseOpacity,
-        filter: enableBlur ? `blur(${blurStrength}px)` : 'none',
-        willChange: 'opacity, filter'
-      },
+      wordElements,
+      { opacity: baseOpacity, willChange: 'opacity' },
       {
         ease: 'none',
         opacity: 1,
-        filter: 'blur(0px)',
+        stagger: 0.05,
         scrollTrigger: {
           trigger: el,
           scroller,
@@ -85,19 +84,34 @@ const ScrollReveal = ({
       }
     );
 
+    if (enableBlur) {
+      gsap.fromTo(
+        wordElements,
+        { filter: `blur(${blurStrength}px)` },
+        {
+          ease: 'none',
+          filter: 'blur(0px)',
+          stagger: 0.05,
+          scrollTrigger: {
+            trigger: el,
+            scroller,
+            start: 'top bottom-=20%',
+            end: wordAnimationEnd,
+            scrub: true
+          }
+        }
+      );
+    }
+
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength, stagger]);
-
-  const Tag = as;
+  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength]);
 
   return (
-    <div ref={containerRef} className={`my-5 ${containerClassName}`}>
-      <Tag ref={textRef} className={`leading-[1.5] font-semibold ${textClassName}`}>
-        {children}
-      </Tag>
-    </div>
+    <h2 ref={containerRef} className={`my-5 ${containerClassName}`}>
+      <p className={`text-[clamp(1.6rem,4vw,3rem)] leading-[1.5] font-semibold ${textClassName}`}>{splitText}</p>
+    </h2>
   );
 };
 

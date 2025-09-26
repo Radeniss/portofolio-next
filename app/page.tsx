@@ -4,7 +4,7 @@
   import Image from 'next/image'
   import { ArrowRight, Download, Code, Palette, Globe } from 'lucide-react'
   import SplitText from './SplitText'
-  import TiltedCard from './TiltedCard';
+  import TiltedCard from './TilteCard';
   import ScrollReveal from './ScrollReveal';
 
 
@@ -31,82 +31,131 @@ export default function Home() {
     console.log('SplitText animation completed!');
   };
 
+
   return (
     <div className="pt-16">
       {/* Hero Section */}
       <section className="min-h-screen flex items-center relative">
-        {/* ... konten hero section tetap sama ... */}
-      </section>
-
-      {/* Skills Section dengan ScrollReveal */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16"> 
-            {/* ScrollReveal untuk heading */}
-            <ScrollReveal
-              as="h2"
-              containerClassName="text-center mb-4"
-              textClassName="text-3xl md:text-4xl font-bold text-slate-300"
-              baseOpacity={0.2}
-              baseRotation={2}
-              blurStrength={8}
-              enableBlur={true}
-            >
-              What I Do
-            </ScrollReveal>
-
-            {/* ScrollReveal untuk deskripsi */}
-            <ScrollReveal
-              as="p"
-              containerClassName="text-center"
-              textClassName="text-lg text-slate-300 max-w-2xl mx-auto"
-              baseOpacity={0.3}
-              baseRotation={1}
-              blurStrength={6}
-              enableBlur={true}
-              wordAnimationEnd="bottom center"
-            >
-              I specialize in creating comprehensive digital solutions from concept to deployment
-            </ScrollReveal>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {skills.map((skill, index) => (
-              <div
-                key={skill.name}
-                className="card group hover:transform hover:scale-105 transition-all duration-300
-                            bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg"
-                style={{ animationDelay: `${index * 0.1}s` }}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="">
+              <SplitText
+                tag="h1"
+                className="text-4xl md:text-6xl font-bold text-white mb-6 text-center"
+                delay={100}
+                duration={0.6}
+                ease="power3.out"
+                splitType="chars"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+                onLetterAnimationComplete={handleAnimationComplete}
               >
-                <div className="bg-primary-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-200 transition-colors">
-                  <skill.icon className="h-8 w-8 text-primary-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-slate-300 mb-3">
-                  {skill.name}
-                </h3>
-                <p className="text-slate-300 leading-relaxed">
-                  {skill.desc}
-                </p>
+                Hello, I'm <span className="text-blue-300">mahelbee</span>
+              </SplitText>
+              
+              <h2 className="text-xl md:text-2xl text-primary-100 mb-6 animate-slide-in">
+                Full-Stack Developer & UI/UX Designer
+              </h2>
+              <p className="text-lg text-slate-300 mb-8 max-w-xl leading-relaxed animate-slide-in">
+                I love the evolution of the modern world, with features that make it easier for me to complete various tasks. Let's learn together and grow to be better.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/portfolio" className="btn-primary inline-flex items-center justify-center animate-slide-in delay-500">
+                  View My Work
+                  <ArrowRight className="h-5 w-5 ml-2" />
+                </Link>
+                <button className="btn-secondary inline-flex items-center justify-center animate-slide-in delay-600">
+                  Download CV
+                  <Download className="h-5 w-5 ml-2" />
+                </button>
               </div>
-            ))}
+            </div>
+
+            <div className="relative animate-fade-in">
+              <div className="w-80 h-80 mx-auto relative">
+                <div className="absolute shadow-2xl">
+                  <TiltedCard
+                    imageSrc="/img/me.png"
+                    altText="mahelbee - GNX Album Cover"
+                    captionText="it's me brohh.."
+                    containerHeight="300px"
+                    containerWidth="300px"
+                    imageHeight="300px"
+                    imageWidth="300px"
+                    rotateAmplitude={12}
+                    scaleOnHover={1.2}
+                    showMobileWarning={false}
+                    showTooltip={true}
+                    displayOverlayContent={true}
+                    overlayContent={
+                      <p className="tilted-card-demo-text" />
+                    }
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary-600 to-secondary-600">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Start a Project?
-          </h2>
-          <p className="text-xl text-primary-100 mb-8">
-            Let&apos;s work together to bring your ideas to life
-          </p>
-          <button className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-primary-50 transition-colors transform hover:scale-105">
-            Get In Touch
-          </button>
-        </div>
-      </section>
-    </div>
-  );
-}
+        {/* Skills Section */}
+        <section className="py-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <ScrollReveal
+                baseOpacity={0}
+                enableBlur={true}
+                baseRotation={5}
+                blurStrength={10}
+                textClassName='text-white'
+              >
+                What I Do
+              </ScrollReveal>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-300 mb-4">
+                What I Do
+              </h2>
+              <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+                I specialize in creating comprehensive digital solutions from concept to deployment
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {skills.map((skill, index) => (
+                <div
+                  key={skill.name}
+                  className="card group hover:transform hover:scale-105 transition-all duration-300
+                              bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="bg-primary-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-200 transition-colors">
+                    <skill.icon className="h-8 w-8 text-primary-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-slate-300 mb-3">
+                    {skill.name}
+                  </h3>
+                  <p className="text-slate-300 leading-relaxed">
+                    {skill.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-20 bg-gradient-to-r from-primary-600 to-secondary-600">
+          <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Ready to Start a Project?
+            </h2>
+            <p className="text-xl text-primary-100 mb-8">
+              Let&apos;s work together to bring your ideas to life
+            </p>
+            <button className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-primary-50 transition-colors transform hover:scale-105">
+              Get In Touch
+            </button>
+          </div>
+        </section>
+      </div>
+    );
+  }
