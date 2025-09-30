@@ -58,17 +58,6 @@
   pointer-events: none;
 }
 
-.split-char, .split-word, .split-line {
-  display: inline-block;
-}
-
-.split-parent span {
-  display: inline;
-}
-
-.split-parent .text-blue-300 {
-  color: #93c5fd;
-}
 
 canvas {
   pointer-events: none;
