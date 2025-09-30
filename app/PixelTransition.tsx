@@ -1,149 +1,158 @@
-`use client`;
+'use client';
 
 import React, { useRef, useEffect, useState, CSSProperties } from 'react';
 import { gsap } from 'gsap';
 
 interface PixelTransitionProps {
-  firstContent: React.ReactNode;
-  secondContent: React.ReactNode;
-  gridSize?: number;
-  pixelColor?: string;
-  animationStepDuration?: number;
-  className?: string;
-  style?: CSSProperties;
-  aspectRatio?: string;
+  firstContent: React.ReactNode;
+  secondContent: React.ReactNode;
+  gridSize?: number;
+  pixelColor?: string;
+  animationStepDuration?: number;
+  className?: string;
+  style?: CSSProperties;
+  aspectRatio?: string;
 }
 
 const PixelTransition: React.FC<PixelTransitionProps> = ({
-  firstContent,
-  secondContent,
-  gridSize = 7,
-  pixelColor = 'currentColor',
-  animationStepDuration = 0.3,
-  className = '',
-  style = {},
-  aspectRatio = '100%'
+  firstContent,
+  secondContent,
+  gridSize = 7,
+  pixelColor = 'currentColor',
+  animationStepDuration = 0.3,
+  className = '',
+  style = {},
+  aspectRatio = '100%'
 }) => {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const pixelGridRef = useRef<HTMLDivElement | null>(null);
-  const activeRef = useRef<HTMLDivElement | null>(null);
-  const delayedCallRef = useRef<gsap.core.Tween | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const pixelGridRef = useRef<HTMLDivElement | null>(null);
+  const activeRef = useRef<HTMLDivElement | null>(null); 
+  const delayedCallRef = useRef<gsap.core.Tween | null>(null);
 
-  const [isActive, setIsActive] = useState<boolean>(false);
+  const [isActive, setIsActive] = useState<boolean>(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false); 
 
-  const isTouchDevice =
-    'ontouchstart' in window || navigator.maxTouchPoints > 0 || window.matchMedia('(pointer: coarse)').matches;
-
-  useEffect(() => {
-    const pixelGridEl = pixelGridRef.current;
-    if (!pixelGridEl) return;
-
-    pixelGridEl.innerHTML = '';
-
-    for (let row = 0; row < gridSize; row++) {
-      for (let col = 0; col < gridSize; col++) {
-        const pixel = document.createElement('div');
-        pixel.classList.add('pixelated-image-card__pixel');
-        pixel.classList.add('absolute', 'hidden');
-        pixel.style.backgroundColor = pixelColor;
-
-        const size = 100 / gridSize;
-        pixel.style.width = `${size}%`;
-        pixel.style.height = `${size}%`;
-        pixel.style.left = `${col * size}%`;
-        pixel.style.top = `${row * size}%`;
-
-        pixelGridEl.appendChild(pixel);
-      }
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+        setIsTouchDevice(
+            'ontouchstart' in window || 
+            navigator.maxTouchPoints > 0 || 
+            window.matchMedia('(pointer: coarse)').matches
+        );
     }
-  }, [gridSize, pixelColor]);
+    
+    const pixelGridEl = pixelGridRef.current;
+    if (!pixelGridEl) return;
 
-  const animatePixels = (activate: boolean): void => {
-    setIsActive(activate);
+    // Logika pembuatan pixel grid
+    pixelGridEl.innerHTML = '';
 
-    const pixelGridEl = pixelGridRef.current;
-    const activeEl = activeRef.current;
-    if (!pixelGridEl || !activeEl) return;
+    for (let row = 0; row < gridSize; row++) {
+      for (let col = 0; col < gridSize; col++) {
+        const pixel = document.createElement('div');
+        pixel.classList.add('pixelated-image-card__pixel');
+        pixel.classList.add('absolute', 'hidden');
+        pixel.style.backgroundColor = pixelColor;
 
-    const pixels = pixelGridEl.querySelectorAll<HTMLDivElement>('.pixelated-image-card__pixel');
-    if (!pixels.length) return;
+        const size = 100 / gridSize;
+        pixel.style.width = `${size}%`;
+        pixel.style.height = `${size}%`;
+        pixel.style.left = `${col * size}%`;
+        pixel.style.top = `${row * size}%`;
 
-    gsap.killTweensOf(pixels);
-    if (delayedCallRef.current) {
-      delayedCallRef.current.kill();
-    }
+        pixelGridEl.appendChild(pixel);
+      }
+    }
+  }, [gridSize, pixelColor]); // Dependencies
 
-    gsap.set(pixels, { display: 'none' });
+  const animatePixels = (activate: boolean): void => {
+    setIsActive(activate);
 
-    const totalPixels = pixels.length;
-    const staggerDuration = animationStepDuration / totalPixels;
+    const pixelGridEl = pixelGridRef.current;
+    const activeEl = activeRef.current;
+    if (!pixelGridEl || !activeEl) return;
 
-    gsap.to(pixels, {
-      display: 'block',
-      duration: 0,
-      stagger: {
-        each: staggerDuration,
-        from: 'random'
-      }
-    });
+    const pixels = pixelGridEl.querySelectorAll<HTMLDivElement>('.pixelated-image-card__pixel');
+    if (!pixels.length) return;
 
-    delayedCallRef.current = gsap.delayedCall(animationStepDuration, () => {
-      activeEl.style.display = activate ? 'block' : 'none';
-      activeEl.style.pointerEvents = activate ? 'none' : '';
-    });
+    gsap.killTweensOf(pixels);
+    if (delayedCallRef.current) {
+      delayedCallRef.current.kill();
+    }
 
-    gsap.to(pixels, {
-      display: 'none',
-      duration: 0,
-      delay: animationStepDuration,
-      stagger: {
-        each: staggerDuration,
-        from: 'random'
-      }
-    });
-  };
+    gsap.set(pixels, { display: 'none' });
 
-  const handleMouseEnter = (): void => {
-    if (!isActive) animatePixels(true);
-  };
-  const handleMouseLeave = (): void => {
-    if (isActive) animatePixels(false);
-  };
-  const handleClick = (): void => {
-    animatePixels(!isActive);
-  };
+    const totalPixels = pixels.length;
+    const staggerDuration = animationStepDuration / totalPixels;
 
-  return (
-    <div
-      ref={containerRef}
-      className={`
-        ${className}
-        bg-[#222]
-        text-white
-        rounded-[15px]
-        border-2
-        border-white
-        w-[200px]
-        max-w-full
-        relative
-        overflow-hidden
-      `}
-      style={style}
-      onMouseEnter={!isTouchDevice ? handleMouseEnter : undefined}
-      onMouseLeave={!isTouchDevice ? handleMouseLeave : undefined}
-      onClick={isTouchDevice ? handleClick : undefined}
-    >
-      <div style={{ paddingTop: aspectRatio }} />
+    gsap.to(pixels, {
+      display: 'block',
+      duration: 0,
+      stagger: {
+        each: staggerDuration,
+        from: 'random'
+      }
+    });
 
-      <div className="absolute inset-0 w-full h-full">{firstContent}</div>
+    delayedCallRef.current = gsap.delayedCall(animationStepDuration, () => {
+      // Pastikan elemen sudah ada sebelum mengakses style
+      if (activeEl) {
+        activeEl.style.display = activate ? 'block' : 'none';
+        activeEl.style.pointerEvents = activate ? 'auto' : ''; 
+      }
+    });
 
-      <div ref={activeRef} className="absolute inset-0 w-full h-full z-[2]" style={{ display: 'none' }}>
-        {secondContent}
-      </div>
+    gsap.to(pixels, {
+      display: 'none',
+      duration: 0,
+      delay: animationStepDuration,
+      stagger: {
+        each: staggerDuration,
+        from: 'random'
+      }
+    });
+  };
 
-      <div ref={pixelGridRef} className="absolute inset-0 w-full h-full pointer-events-none z-[3]" />
-    </div>
-  );
+  const handleMouseEnter = (): void => {
+    if (!isActive) animatePixels(true);
+  };
+  const handleMouseLeave = (): void => {
+    if (isActive) animatePixels(false);
+  };
+  const handleClick = (): void => {
+    animatePixels(!isActive);
+  };
+
+  return (
+    <div
+      ref={containerRef}
+      className={`
+        ${className}
+        bg-[#222]
+        text-white
+        w-full
+        max-w-full
+        relative
+        overflow-hidden
+      
+      `}
+      style={style}
+      onMouseEnter={!isTouchDevice ? handleMouseEnter : undefined}
+      onMouseLeave={!isTouchDevice ? handleMouseLeave : undefined}
+      onClick={isTouchDevice ? handleClick : undefined}
+    >
+      <div style={{ paddingTop: aspectRatio }} />
+
+      {/* Konten Awal */}
+      <div className="absolute inset-0 w-full h-full">{firstContent}</div>
+
+      <div ref={activeRef} className="absolute inset-0 w-full h-full z-[2]" style={{ display: 'none' }}>
+        {secondContent}
+      </div>
+
+      <div ref={pixelGridRef} className="absolute inset-0 w-full h-full pointer-events-none z-[3]" />
+    </div>
+  );
 };
 
 export default PixelTransition;
