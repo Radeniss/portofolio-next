@@ -134,7 +134,7 @@ export default function Home() {
         </section>
 
         {/* are you tired? */}
-        <section className="py-10">
+        <section className="py-60">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className='text-center mb-16'>
                     <h2 className="text-3xl md:text-4xl font-bold text-slate-300 mb-4">
@@ -147,7 +147,7 @@ export default function Home() {
 
                 <div className="flex flex-col md:flex-row items-start md:gap-[40px] gap-6">                     
                     <PixelTransition 
-                        className="custom-pixel-card w-full md:w-1/8 border-2 border-white rounded-lg" 
+                        className="custom-pixel-card w-full md:w-1/6 border-2 border-white rounded-lg" 
                         firstContent={
                             <img
                                 src="img/me.png"
@@ -165,7 +165,7 @@ export default function Home() {
                                     backgroundColor: "#111"
                                 }}
                             >
-                                <p style={{ fontWeight: 900, fontSize: "3rem", color: "#ffffff" }}>Eyyowww</p>
+                                <p style={{ fontWeight: 900, fontSize: "2rem", color: "#ffffff" }}>Eyyowww</p>
                             </div>
                         }
                         gridSize={12}
