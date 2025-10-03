@@ -35,7 +35,7 @@ export default function Home() {
 
         `I know the frustration of spending hours staring at the screen, hunting for a single missing semicolon or a flawed logic. Don't worry, you are not alone on this journey. Whatever the programming language from the flexibility of Python, the dynamism of JavaScript, the complexity of C++, or even the occasional quirks of markup like HTML/CSS I am here to listen and try to understand your thought process. Sending in error ridden code might feel embarrassing, but trust me, it’s the first step towards a solution.`,
 
-        `So, don't hesitate to share. Tell me a bit about your project and where you're getting stuck. We can talk about everything from data structures, algorithms, best practices, to specific debugging techniques. I may not always have an instant answer (because the world of coding is vast!), but I promise to offer a different perspective, help refine your logical flow, or even just be an effective rubber duck (a sounding board for articulating the problem). Bring your problem, and let's dissect the code together until you can get back to the joy of creation .`
+        `So, don't hesitate to share. Tell me a bit about your project and where you're getting stuck. We can talk about everything from data structures, algorithms, best practices, to specific debugging techniques. I may not always have an instant answer (because the world of coding is vast!), but I promise to offer a different perspective, help refine your logical flow, or even just be an effective rubber duck (a sounding board for articulating the problem). Bring your problem, and let's dissect the code together until you can get back to the joy of creation.`
       ],
       link: '/portfolio'
 }
