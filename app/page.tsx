@@ -26,6 +26,20 @@ export default function Home() {
       desc: 'Figma, Adobe XD, user-centered design and responsive web design' 
     },
   ]
+  
+  const helps =[
+    {
+      title: 'Coding',
+      desc: [
+        `You must feel tired when your coding always gives you errors and you're confused about where the error is. What programming language are you using? Let's fix it together.`,
+
+        `I know the frustration of spending hours staring at the screen, hunting for a single missing semicolon or a flawed logic. Don't worry, you are not alone on this journey. Whatever the programming language from the flexibility of Python, the dynamism of JavaScript, the complexity of C++, or even the occasional quirks of markup like HTML/CSS I am here to listen and try to understand your thought process. Sending in error ridden code might feel embarrassing, but trust me, it’s the first step towards a solution.`,
+
+        `So, don't hesitate to share. Tell me a bit about your project and where you're getting stuck. We can talk about everything from data structures, algorithms, best practices, to specific debugging techniques. I may not always have an instant answer (because the world of coding is vast!), but I promise to offer a different perspective, help refine your logical flow, or even just be an effective rubber duck (a sounding board for articulating the problem). Bring your problem, and let's dissect the code together until you can get back to the joy of creation.`
+      ],
+      link: '/portfolio'
+}
+  ]
 
   const handleAnimationComplete = () => {
     console.log('SplitText animation completed!');
@@ -173,17 +187,19 @@ export default function Home() {
                         animationStepDuration={0.4}
                     />
                     
-                    <div 
+                    {helps.map((help, index) => (
+                      
+                    <div key={help.title}
                         className="card group hover:transform transition-all duration-300
                                   bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg 
                                   w-full md:flex-1 h-full flex flex-col"> 
                         <div className="mb-6">
                             <p className=" text-slate-300 text-3xl font-bold">
-                                Coding
+                                {help.title}
                             </p>
                         </div>
                         <h3 className="text-md text-slate-300 mb-3 ">
-                            You must feel tired when your coding always gives you errors and you're confused about where the error is. What programming language are you using? Let's fix it together.
+                            {help.desc}
                         </h3>
                         <Link 
                           href='/portofolio'
@@ -192,6 +208,7 @@ export default function Home() {
                             <ArrowRight className="h-5 w-5 ml-2 transition-transform group-hover:translate-x-1" /> 
                         </Link>
                     </div>
+                    ))}
                 </div>
             </div>
         </section>
