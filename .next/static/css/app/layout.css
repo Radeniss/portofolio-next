@@ -777,6 +777,9 @@ div[class*="Particles"] > canvas {
 .mt-8 {
   margin-top: 2rem;
 }
+.mt-auto {
+  margin-top: auto;
+}
 .line-clamp-2 {
   overflow: hidden;
   display: -webkit-box;
@@ -873,9 +876,6 @@ div[class*="Particles"] > canvas {
 .w-full {
   width: 100%;
 }
-.w-\[200px\] {
-  width: 200px;
-}
 .max-w-2xl {
   max-width: 42rem;
 }
@@ -964,6 +964,9 @@ div[class*="Particles"] > canvas {
 }
 .items-center {
   align-items: center;
+}
+.items-stretch {
+  align-items: stretch;
 }
 .justify-center {
   justify-content: center;
@@ -1257,17 +1260,13 @@ div[class*="Particles"] > canvas {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.py-\[4px\] {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-.py-80 {
-  padding-top: 20rem;
-  padding-bottom: 20rem;
-}
 .py-60 {
   padding-top: 15rem;
   padding-bottom: 15rem;
+}
+.py-\[4px\] {
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 .pt-16 {
   padding-top: 4rem;
@@ -1562,6 +1561,11 @@ div[class*="Particles"] > canvas {
   background-color: rgb(255 255 255 / 0.2);
 }
 
+.hover\:text-blue-300:hover {
+  --tw-text-opacity: 1;
+  color: rgb(147 197 253 / var(--tw-text-opacity, 1));
+}
+
 .hover\:text-primary-600:hover {
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity, 1));
@@ -1700,24 +1704,8 @@ div[class*="Particles"] > canvas {
     height: 6rem;
   }
 
-  .md\:w-1\/2 {
-    width: 50%;
-  }
-
-  .md\:w-1 {
-    width: 0.25rem;
-  }
-
-  .md\:w-1\/3 {
-    width: 33.333333%;
-  }
-
-  .md\:w-1\/5 {
-    width: 20%;
-  }
-
-  .md\:w-1\/6 {
-    width: 16.666667%;
+  .md\:w-\[200px\] {
+    width: 200px;
   }
 
   .md\:flex-1 {

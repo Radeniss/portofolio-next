@@ -145,9 +145,9 @@ export default function Home() {
                     </p>
                 </div>
 
-                <div className="flex flex-col md:flex-row items-start md:gap-[40px] gap-6">                     
+                <div className="flex flex-col md:flex-row items-stretch md:gap-[40px] gap-6">                     
                     <PixelTransition 
-                        className="custom-pixel-card w-full md:w-1/6 border-2 border-white rounded-lg" 
+                        className="custom-pixel-card w-full md:w-[200px] h-full border-2 border-white rounded-lg" 
                         firstContent={
                             <img
                                 src="img/me.png"
@@ -174,22 +174,24 @@ export default function Home() {
                     />
                     
                     <div 
-                        className="card group hover:transform hover:scale-105 transition-all duration-300
+                        className="card group hover:transform transition-all duration-300
                                   bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg 
-                                  w-full md:flex-1"> 
+                                  w-full md:flex-1 h-full flex flex-col"> 
                         <div className="mb-6">
-                            <h3 className="h-8 w-8 text-slate-300 text-3xl font-bold">
+                            <p className=" text-slate-300 text-3xl font-bold">
                                 Coding
-                            </h3>
+                            </p>
                         </div>
                         <h3 className="text-md text-slate-300 mb-3 ">
                             You must feel tired when your coding always gives you errors and you're confused about where the error is. What programming language are you using? Let's fix it together.
                         </h3>
-                        <p className="text-slate-300 leading-relaxed">
-                            zcx
-                        </p>
+                        <Link 
+                          href='/portofolio'
+                          className="text-slate-300 leading-relaxed flex items-center transition-colors hover:text-blue-300 mt-auto group">
+                            more
+                            <ArrowRight className="h-5 w-5 ml-2 transition-transform group-hover:translate-x-1" /> 
+                        </Link>
                     </div>
-                    
                 </div>
             </div>
         </section>
