@@ -225,7 +225,7 @@ export default function Home() {
               Ready to Start a Project?
             </h2>
             <p className="text-xl text-primary-100 mb-8">
-              Let&apos;s work together to bring your ideas to life.
+              Let&apos;s work together to bring your ideas to life
             </p>
             <button className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-primary-50 transition-colors transform hover:scale-105">
               Get In Touch
