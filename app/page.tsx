@@ -199,7 +199,12 @@ export default function Home() {
                             </p>
                         </div>
                         <h3 className="text-md text-slate-300 mb-3 ">
-                            {help.desc}
+                            {help.desc.map((paragraph, pIndex) => (
+                              <p key={pIndex}
+                                className={pIndex < help.desc.length -1 ? 'mb-4 leading-relaxed' : 'leading-relaxed'}>
+                                {paragraph}
+                              </p>
+                            ))}
                         </h3>
                         <Link 
                           href='/portofolio'
