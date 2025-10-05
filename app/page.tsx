@@ -31,8 +31,9 @@ export default function Home() {
     
     const helps =[
         {
-            img:'/img/me.png',
-            title: 'Coding',
+          title: 'Coding',
+          img:'/img/1.jpg',
+          quote:'yareuuu',
             desc: [
                 `You must feel tired when your coding always gives you errors and you're confused about where the error is. What programming language are you using? Let's fix it together.`,
 
@@ -167,8 +168,8 @@ export default function Home() {
                             className="custom-pixel-card w-full md:w-[200px] h-full border-2 border-white rounded-lg" 
                             firstContent={
                                 <img
-                                    src="img/me.png"
-                                    alt="default pixel transition content, a cat!"
+                                    src={helps[0].img}
+                                    alt={helps[0].title}
                                     style={{ width: "100%", height: "100%", objectFit: "cover" }}
                                 />
                             }
@@ -182,7 +183,7 @@ export default function Home() {
                                         backgroundColor: "#111"
                                     }}
                                 >
-                                    <p style={{ fontWeight: 900, fontSize: "2rem", color: "#ffffff" }}>Eyyowww</p>
+                                    <p style={{ fontWeight: 900, fontSize: "2rem", color: "#ffffff" }} >{helps[0].quote}</p>
                                 </div>
                             }
                             gridSize={12}
@@ -193,7 +194,7 @@ export default function Home() {
                         {helps.map((help, index) => {
                             
                             const fullText = help.desc.join('\n\n');
-                            const characterLimit = 500;
+                            const characterLimit = 170;
                             const isTooLong = fullText.length > characterLimit;
 
                             const displayText = isTooLong && !isExpanded
