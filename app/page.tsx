@@ -4,13 +4,11 @@ import Link from 'next/link'
 import { ArrowRight, Download, Code, Palette, Globe } from 'lucide-react'
 import SplitText from './SplitText'
 import TiltedCard from './TilteCard';
-import PixelTransition from './PixelTransition';
+import HelpCard from '../components/HelpCard';
 import { useState } from 'react';
 
 
 export default function Home() {
-    
-    const [isExpanded, setIsExpanded] = useState(false); 
 
     const skills = [
         { 
@@ -171,84 +169,10 @@ export default function Home() {
                     </div>
 
                     <div className="flex flex-col space-y-8">
-                        {helps.map((help, index) => {
-                            
-                            const fullText = help.desc.join('\n\n');
-                            const characterLimit = 170;
-                            const isTooLong = fullText.length > characterLimit;
-
-                            const displayText = isTooLong && !isExpanded
-                                ? fullText.slice(0, characterLimit) + '...'
-                                : fullText;
-
-                            const paragraphs = displayText.split('\n\n');
-                            
-                            return (
-                                <div key={index} className="flex flex-col md:flex-row items-stretch md:gap-[40px] gap-6">
-                                    
-                                    <PixelTransition 
-                                        className="custom-pixel-card w-full md:w-[200px] h-full border-2 border-white rounded-lg" 
-                                        firstContent={
-                                            <img
-                                                src={help.img}
-                                                alt={help.title}
-                                                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                                            />
-                                        }
-                                        secondContent={
-                                            <div
-                                                style={{
-                                                    width: "100%",
-                                                    height: "100%",
-                                                    display: "grid",
-                                                    placeItems: "center",
-                                                    backgroundColor: "#111"
-                                                }}
-                                            >
-                                                <p style={{ fontWeight: 900, fontSize: "2rem", color: "#ffffff" }} >{help.quote}</p>
-                                            </div>
-                                        }
-                                        gridSize={12}
-                                        pixelColor='#ffffff'
-                                        animationStepDuration={0.4}
-                                    />
-
-                                    {/* 2. Kartu Deskripsi */}
-                                    <div 
-                                        className="card group hover:transform transition-all duration-300
-                                                bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg 
-                                                w-full md:flex-1 h-full flex flex-col"
-                                    > 
-                                        <div className="mb-6">
-                                            <p className=" text-slate-300 text-3xl font-bold">
-                                                {help.title}
-                                            </p>
-                                        </div>
-
-                                        <div className="text-md text-slate-300 flex-1"> 
-                                            {paragraphs.map((paragraph, pIndex) => (
-                                                <p 
-                                                    key={pIndex} 
-                                                    className={pIndex < paragraphs.length - 1 ? 'mb-4 leading-relaxed' : 'leading-relaxed'}
-                                                >
-                                                    {paragraph}
-                                                </p>
-                                            ))}
-                                        </div>
-
-                                        {/* Tombol More/Less */}
-                                        {isTooLong && (
-                                            <button
-                                                onClick={() => setIsExpanded(!isExpanded)}
-                                                className="text-blue-300 font-semibold text-left mt-4 hover:underline"
-                                            >
-                                                {isExpanded ? 'Show Less' : 'More...'}
-                                            </button>
-                                        )}
-                                    </div>
-                                </div>
-                            )
-                        })}
+                        {helps.map((help, index) => (
+                            <HelpCard key={index} helpData={help}
+                        />
+                        ))}
                     </div>
                 </div>
             </section>
