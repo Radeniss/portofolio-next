@@ -30,38 +30,44 @@ export default function Home() {
         },
     ]
     
+    // Pastikan data ini unik (saya asumsikan Anda ingin dua kartu berbeda)
     const helps =[
         {
-          title: 'Coding',
-          img:'/img/1.jpg',
-          quote:'yareuuu',
+            title: 'Coding Help',
+            img:'/img/1.jpg', // Gambar 1
+            quote:'CODE FIX',
             desc: [
                 `You must feel tired when your coding always gives you errors and you're confused about where the error is. What programming language are you using? Let's fix it together.`,
 
-                `I know the frustration of spending hours staring at the screen, hunting for a single missing semicolon or a flawed logic. Don't worry, you are not alone on this journey. Whatever the programming language from the flexibility of Python, the dynamism of JavaScript, the complexity of C++, or even the occasional quirks of markup like HTML/CSS I am here to listen and try to understand your thought process. Sending in error ridden code might feel embarrassing, but trust me, it’s the first step towards a solution.`,
-
-                `So, don't hesitate to share. Tell me a bit about your project and where you're getting stuck. We can talk about everything from data structures, algorithms, best practices, to specific debugging techniques. I may not always have an instant answer (because the world of coding is vast!), but I promise to offer a different perspective, help refine your logical flow, or even just be an effective rubber duck (a sounding board for articulating the problem). Bring your problem, and let's dissect the code together until you can get back to the joy of creation.`
+                `I know the frustration of spending hours staring at the screen, hunting for a single missing semicolon or a flawed logic. Don't worry, you are not alone on this journey. Whatever the programming language from the flexibility of Python, the dynamism of JavaScript, the complexity of C++, or even the occasional quirks of markup like HTML/CSS I am here to listen and try to understand your thought process.`,
             ],
         },
         {
-          title: 'Coding',
-          img:'/img/1.jpg',
-          quote:'yareuuu',
+            title: 'Design Review',
+            img:'/img/1.jpg', // Gambar 2 (Pastikan file /img/2.jpg ada)
+            quote:'DESIGN',
             desc: [
-                `You must feel tired when your coding always gives you errors and you're confused about where the error is. What programming language are you using? Let's fix it together.`,
+                `Stuck on layout or visual appeal? I can help review your UI/UX design concepts, offering feedback on usability, aesthetics, and user flow.`,
 
-                `I know the frustration of spending hours staring at the screen, hunting for a single missing semicolon or a flawed logic. Don't worry, you are not alone on this journey. Whatever the programming language from the flexibility of Python, the dynamism of JavaScript, the complexity of C++, or even the occasional quirks of markup like HTML/CSS I am here to listen and try to understand your thought process. Sending in error ridden code might feel embarrassing, but trust me, it’s the first step towards a solution.`,
+                `A great design isn't just about looks; it's about making the user experience seamless and enjoyable. Bring your Figma links or mockups, and we can discuss color theory, typography, accessibility, and modern design principles. Let's make your interface beautiful and highly functional.`,
+            ],
+        },
+        
+        {
+            title: 'Design Review',
+            img:'/img/1.jpg', // Gambar 2 (Pastikan file /img/2.jpg ada)
+            quote:'DESIGN',
+            desc: [
+                `Stuck on layout or visual appeal? I can help review your UI/UX design concepts, offering feedback on usability, aesthetics, and user flow.`,
 
-                `So, don't hesitate to share. Tell me a bit about your project and where you're getting stuck. We can talk about everything from data structures, algorithms, best practices, to specific debugging techniques. I may not always have an instant answer (because the world of coding is vast!), but I promise to offer a different perspective, help refine your logical flow, or even just be an effective rubber duck (a sounding board for articulating the problem). Bring your problem, and let's dissect the code together until you can get back to the joy of creation.`
+                `A great design isn't just about looks; it's about making the user experience seamless and enjoyable. Bring your Figma links or mockups, and we can discuss color theory, typography, accessibility, and modern design principles. Let's make your interface beautiful and highly functional.`,
             ],
         }
     ]
 
-
     const handleAnimationComplete = () => {
         console.log('SplitText animation completed!');
     };
-
 
     return (
         <div className="pt-16">
@@ -146,7 +152,7 @@ export default function Home() {
                             <div
                                 key={skill.name}
                                 className="card group hover:transform hover:scale-105 transition-all duration-300
-                                            bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg"
+                                             bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg"
                                 style={{ animationDelay: `${index * 0.1}s` }}
                             >
                                 <div className="bg-primary-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-200 transition-colors">
@@ -164,6 +170,7 @@ export default function Home() {
                 </div>
             </section>
             
+            {/* Are You Tired? Section (Help Section) */}
             <section className="py-60">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className='text-center mb-16'>
@@ -175,59 +182,66 @@ export default function Home() {
                         </p>
                     </div>
 
-                    <div className="flex flex-col md:flex-row items-stretch md:gap-[40px] gap-6">
-                        <PixelTransition 
-                            className="custom-pixel-card w-full md:w-[200px] h-full border-2 border-white rounded-lg" 
-                            firstContent={
-                                <img
-                                    src={helps[0].img}
-                                    alt={helps[0].title}
-                                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                                />
-                            }
-                            secondContent={
-                                <div
-                                    style={{
-                                        width: "100%",
-                                        height: "100%",
-                                        display: "grid",
-                                        placeItems: "center",
-                                        backgroundColor: "#111"
-                                    }}
-                                >
-                                    <p style={{ fontWeight: 900, fontSize: "2rem", color: "#ffffff" }} >{helps[0].quote}</p>
-                                </div>
-                            }
-                            gridSize={12}
-                            pixelColor='#ffffff'
-                            animationStepDuration={0.4}
-                        />
-                        
-                        <div className="flex flex-col space-y-8 md:flex-1">   
+                    {/* STRUCTURE BARU: Perulangan untuk pasangan kartu */}
+                    <div className="flex flex-col space-y-8">
                         {helps.map((help, index) => {
                             
                             const fullText = help.desc.join('\n\n');
                             const characterLimit = 170;
                             const isTooLong = fullText.length > characterLimit;
 
+                            // Catatan: isExpanded di sini akan mempengaruhi semua kartu, Anda mungkin ingin ini menjadi state lokal per kartu di komponen terpisah.
                             const displayText = isTooLong && !isExpanded
                                 ? fullText.slice(0, characterLimit) + '...'
                                 : fullText;
 
-                            const paragraphs = displayText.split('\n\n'); 
+                            const paragraphs = displayText.split('\n\n');
                             
-                            return (  
-                                <div key={help.title}
-                                    className="card group hover:transform transition-all duration-300
-                                                bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg 
-                                                w-full md:flex-1 h-full flex flex-col"> 
-                                    <div className="mb-6">
-                                        <p className=" text-slate-300 text-3xl font-bold">
-                                            {help.title}
-                                        </p>
-                                    </div>
+                            return (
+                                // Container per baris: Gambar (PixelTransition) + Deskripsi
+                                <div key={index} className="flex flex-col md:flex-row items-stretch md:gap-[40px] gap-6">
+                                    
+                                    {/* 1. Komponen PixelTransition (Menggunakan data loop) */}
+                                    <PixelTransition 
+                                        className="custom-pixel-card w-full md:w-[200px] h-full border-2 border-white rounded-lg" 
+                                        firstContent={
+                                            <img
+                                                src={help.img} // Mengambil gambar dari item loop saat ini
+                                                alt={help.title}
+                                                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                                            />
+                                        }
+                                        secondContent={
+                                            <div
+                                                style={{
+                                                    width: "100%",
+                                                    height: "100%",
+                                                    display: "grid",
+                                                    placeItems: "center",
+                                                    backgroundColor: "#111"
+                                                }}
+                                            >
+                                                <p style={{ fontWeight: 900, fontSize: "2rem", color: "#ffffff" }} >{help.quote}</p>
+                                            </div>
+                                        }
+                                        gridSize={12}
+                                        pixelColor='#ffffff'
+                                        animationStepDuration={0.4}
+                                    />
 
-                                    <div className="text-md text-slate-300 flex-1"> 
+                                    {/* 2. Kartu Deskripsi */}
+                                    <div 
+                                        className="card group hover:transform transition-all duration-300
+                                                bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg 
+                                                w-full md:flex-1 h-full flex flex-col"
+                                    > 
+                                        <div className="mb-6">
+                                            <p className=" text-slate-300 text-3xl font-bold">
+                                                {help.title}
+                                            </p>
+                                        </div>
+
+                                        <div className="text-md text-slate-300 flex-1"> 
                                             {paragraphs.map((paragraph, pIndex) => (
                                                 <p 
                                                     key={pIndex} 
@@ -236,21 +250,21 @@ export default function Home() {
                                                     {paragraph}
                                                 </p>
                                             ))}
-                                    </div>
+                                        </div>
 
-                                    {/* Tombol More/Less */}
-                                    {isTooLong && (
-                                        <button
-                                            onClick={() => setIsExpanded(!isExpanded)}
-                                            className="text-blue-300 font-semibold text-left mt-4 hover:underline"
-                                        >
-                                            {isExpanded ? 'Show Less' : 'More...'}
-                                        </button>
-                                    )}
+                                        {/* Tombol More/Less */}
+                                        {isTooLong && (
+                                            <button
+                                                onClick={() => setIsExpanded(!isExpanded)}
+                                                className="text-blue-300 font-semibold text-left mt-4 hover:underline"
+                                            >
+                                                {isExpanded ? 'Show Less' : 'More...'}
+                                            </button>
+                                        )}
+                                    </div>
                                 </div>
                             )
-                          })}
-                        </div>
+                        })}
                     </div>
                 </div>
             </section>
