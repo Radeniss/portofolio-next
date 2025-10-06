@@ -30,11 +30,10 @@ export default function Home() {
         },
     ]
     
-    // Pastikan data ini unik (saya asumsikan Anda ingin dua kartu berbeda)
     const helps =[
         {
             title: 'Coding Help',
-            img:'/img/1.jpg', // Gambar 1
+            img:'/img/1.jpg',
             quote:'CODE FIX',
             desc: [
                 `You must feel tired when your coding always gives you errors and you're confused about where the error is. What programming language are you using? Let's fix it together.`,
@@ -44,18 +43,7 @@ export default function Home() {
         },
         {
             title: 'Design Review',
-            img:'/img/1.jpg', // Gambar 2 (Pastikan file /img/2.jpg ada)
-            quote:'DESIGN',
-            desc: [
-                `Stuck on layout or visual appeal? I can help review your UI/UX design concepts, offering feedback on usability, aesthetics, and user flow.`,
-
-                `A great design isn't just about looks; it's about making the user experience seamless and enjoyable. Bring your Figma links or mockups, and we can discuss color theory, typography, accessibility, and modern design principles. Let's make your interface beautiful and highly functional.`,
-            ],
-        },
-        
-        {
-            title: 'Design Review',
-            img:'/img/1.jpg', // Gambar 2 (Pastikan file /img/2.jpg ada)
+            img:'/img/1.jpg',
             quote:'DESIGN',
             desc: [
                 `Stuck on layout or visual appeal? I can help review your UI/UX design concepts, offering feedback on usability, aesthetics, and user flow.`,
@@ -182,7 +170,6 @@ export default function Home() {
                         </p>
                     </div>
 
-                    {/* STRUCTURE BARU: Perulangan untuk pasangan kartu */}
                     <div className="flex flex-col space-y-8">
                         {helps.map((help, index) => {
                             
@@ -190,7 +177,6 @@ export default function Home() {
                             const characterLimit = 170;
                             const isTooLong = fullText.length > characterLimit;
 
-                            // Catatan: isExpanded di sini akan mempengaruhi semua kartu, Anda mungkin ingin ini menjadi state lokal per kartu di komponen terpisah.
                             const displayText = isTooLong && !isExpanded
                                 ? fullText.slice(0, characterLimit) + '...'
                                 : fullText;
@@ -198,15 +184,13 @@ export default function Home() {
                             const paragraphs = displayText.split('\n\n');
                             
                             return (
-                                // Container per baris: Gambar (PixelTransition) + Deskripsi
                                 <div key={index} className="flex flex-col md:flex-row items-stretch md:gap-[40px] gap-6">
                                     
-                                    {/* 1. Komponen PixelTransition (Menggunakan data loop) */}
                                     <PixelTransition 
                                         className="custom-pixel-card w-full md:w-[200px] h-full border-2 border-white rounded-lg" 
                                         firstContent={
                                             <img
-                                                src={help.img} // Mengambil gambar dari item loop saat ini
+                                                src={help.img}
                                                 alt={help.title}
                                                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
                                             />
