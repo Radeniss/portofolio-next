@@ -52,13 +52,12 @@ export default function Home() {
 
         {
             title: 'Learn Mechine Learning',
-            img:'/img/3.png',
-            quote:'DESIGN',
+            img:'/img/4.png',
+            quote:'ML',
             desc: [
-                `I can help review your UI/UX design concepts in depth, not just by providing brief feedback, but also by offering strategic guidance on overall usability, aesthetics, and user flow.`,
+                `Machine Learning (ML) memang asyik banget ya, apalagi saat melihat model kita belajar dan berkinerja baik. Tapi, jujur deh, pernah nggak sih kalian lagi asyik-asyik training model, eh malah ketemu error yang bikin pusing tujuh keliling? Entah itu dataset yang penuh noise dan butuh preprocessing ekstra, atau model yang sudah kita pilih ternyata ngambek dan nggak mau sesuai ekspektasi.`,
 
-                `A great design isn't just about looks; it's about making the user experience seamless and enjoyable. Bring your Figma links or mockups, and we can discuss color theory, typography, accessibility, and modern design principles. Let's make your interface beautiful and highly functional.`,
-            ],
+                `Frustrasi itu wajar kok, karena di balik setiap keberhasilan model yang canggih, ada segudang eksperimen dan debugging yang kita lalui. Momen ketika kita harus menghabiskan waktu berjam-jam hanya untuk membersihkan data yang kacau, atau mencoba berbagai hyperparameter tanpa hasil yang signifikan, seringkali menguji kesabaran. Proses ini—yang melibatkan kegagalan model untuk konvergen, hasil prediksi yang sama sekali meleset, atau munculnya Bias Variance Trade ff yang tak terhindarkan—adalah bagian krusial dari perjalanan seorang data scientist. Jangan pernah merasa sendirian; setiap profesional ML pernah berada di titik di mana mereka harus membuang seluruh notebook dan memulai dari awal lagi. Tantangan-tantangan ini yang justru mengajarkan kita ketekunan dan pemahaman yang lebih dalam tentang seluk-beluk data dan algoritma. Jadi, kalian pernah mengalami momen roller coaster emosi seperti itu juga, kan?`],
         }
     ]
 
