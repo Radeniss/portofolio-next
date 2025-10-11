@@ -19,7 +19,7 @@ export default function HelpCard ({helpData}) {
     return (
         <div className="flex flex-col md:flex-row items-stretch md:gap-[40px] gap-6">
             <PixelTransition 
-                className="custom-pixel-card w-full md:w-[200px] h-full border-2 border-white rounded-lg" 
+                className="custom-pixel-card w-1/2 mx-auto md:w-[200px] h-full border-2 border-white rounded-lg" 
                 firstContent={
                     <img
                         src={helpData.img}

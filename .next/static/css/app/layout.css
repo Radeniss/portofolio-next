@@ -873,6 +873,12 @@ div[class*="Particles"] > canvas {
 .w-full {
   width: 100%;
 }
+.w-4\/5 {
+  width: 80%;
+}
+.w-1\/2 {
+  width: 50%;
+}
 .max-w-2xl {
   max-width: 42rem;
 }
@@ -1701,6 +1707,14 @@ div[class*="Particles"] > canvas {
 
   .md\:w-\[200px\] {
     width: 200px;
+  }
+
+  .md\:w-\[100px\] {
+    width: 100px;
+  }
+
+  .md\:w-\[00px\] {
+    width: 00px;
   }
 
   .md\:flex-1 {
