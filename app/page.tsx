@@ -31,7 +31,7 @@ export default function Home() {
     const helps =[
         {
             title: 'Coding Help',
-            img:'/img/1.jpg',
+            img:'/img/2.png',
             quote:'CODE FIX',
             desc: [
                 `You must feel tired when your coding always gives you errors and you're confused about where the error is. What programming language are you using? Let's fix it together.`,
@@ -41,10 +41,21 @@ export default function Home() {
         },
         {
             title: 'Design Review',
-            img:'/img/1.jpg',
+            img:'/img/3.png',
             quote:'DESIGN',
             desc: [
-                `Stuck on layout or visual appeal? I can help review your UI/UX design concepts, offering feedback on usability, aesthetics, and user flow.`,
+                `I can help review your UI/UX design concepts in depth, not just by providing brief feedback, but also by offering strategic guidance on overall usability, aesthetics, and user flow.`,
+
+                `A great design isn't just about looks; it's about making the user experience seamless and enjoyable. Bring your Figma links or mockups, and we can discuss color theory, typography, accessibility, and modern design principles. Let's make your interface beautiful and highly functional.`,
+            ],
+        },
+
+        {
+            title: 'Learn Mechine Learning',
+            img:'/img/3.png',
+            quote:'DESIGN',
+            desc: [
+                `I can help review your UI/UX design concepts in depth, not just by providing brief feedback, but also by offering strategic guidance on overall usability, aesthetics, and user flow.`,
 
                 `A great design isn't just about looks; it's about making the user experience seamless and enjoyable. Bring your Figma links or mockups, and we can discuss color theory, typography, accessibility, and modern design principles. Let's make your interface beautiful and highly functional.`,
             ],
