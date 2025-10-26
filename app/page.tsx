@@ -6,6 +6,7 @@ import SplitText from './SplitText'
 import TiltedCard from './TilteCard';
 import HelpCard from '../components/HelpCard';
 import { useState } from 'react';
+import AnimatedContent from './AnimatedContent';
 
 
 export default function Home() {
@@ -133,37 +134,53 @@ export default function Home() {
 
             {/* Skills Section */}
             <section className="py-10">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-slate-300 mb-4">
-                            What I Do
-                        </h2>
-                        <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-                            I specialize in creating comprehensive digital solutions from concept to deployment
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {skills.map((skill, index) => (
-                            <div
-                                key={skill.name}
-                                className="card group hover:transform hover:scale-105 transition-all duration-300
-                                             bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg"
-                                style={{ animationDelay: `${index * 0.1}s` }}
-                            >
-                                <div className="bg-primary-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-200 transition-colors">
-                                    <skill.icon className="h-8 w-8 text-primary-600" />
-                                </div>
-                                <h3 className="text-xl font-semibold text-slate-300 mb-3">
-                                    {skill.name}
-                                </h3>
-                                <p className="text-slate-300 leading-relaxed">
-                                    {skill.desc}
+                <AnimatedContent
+                    distance={150}
+                    direction="vertical"
+                    reverse={false}
+                    duration={1.2}
+                    ease="bounce.out"
+                    initialOpacity={0.2}
+                    animateOpacity
+                    scale={1.1}
+                    threshold={0.2}
+                    delay={0.3}
+                    >
+                    <div>
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="text-center mb-16">
+                                <h2 className="text-3xl md:text-4xl font-bold text-slate-300 mb-4">
+                                    What I Do
+                                </h2>
+                                <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+                                    I specialize in creating comprehensive digital solutions from concept to deployment
                                 </p>
                             </div>
-                        ))}
+
+                            
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                {skills.map((skill, index) => (
+                                    <div
+                                        key={skill.name}
+                                        className="card group hover:transform hover:scale-105 transition-all duration-300
+                                                    bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg"
+                                        style={{ animationDelay: `${index * 0.1}s` }}
+                                    >
+                                        <div className="bg-primary-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-200 transition-colors">
+                                            <skill.icon className="h-8 w-8 text-primary-600" />
+                                        </div>
+                                        <h3 className="text-xl font-semibold text-slate-300 mb-3">
+                                            {skill.name}
+                                        </h3>
+                                        <p className="text-slate-300 leading-relaxed">
+                                            {skill.desc}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </AnimatedContent>
             </section>
             
             {/* Are You Tired? Section (Help Section) */}
@@ -185,6 +202,7 @@ export default function Home() {
                         ))}
                     </div>
                 </div>
+
             </section>
             
             {/* CTA Section */}
