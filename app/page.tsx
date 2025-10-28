@@ -182,26 +182,26 @@ export default function Home() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className='text-center mb-16'>
                         <AnimatedContent
-                                distance={150}
-                                direction="vertical"
-                                reverse={false}
-                                duration={0.8}
-                                ease=""
-                                initialOpacity={0.2}
-                                animateOpacity
-                                scale={1.1}
-                                threshold={0.2}
-                                delay={0.15}
-                                >
-                                <div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-slate-300 mb-4">
-                            Are You Tired?
-                        </h2>
-                        <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-                            Maybe I can help you with some things. I also get tired sometimes, at that time my friends listen and give the best solution
-                        </p>
-                         </div>
-                            </AnimatedContent>
+                            distance={150}
+                            direction="vertical"
+                            reverse={false}
+                            duration={0.8}
+                            ease=""
+                            initialOpacity={0.2}
+                            animateOpacity
+                            scale={1.1}
+                            threshold={0.2}
+                            delay={0.15}
+                            >
+                            <div>
+                                <h2 className="text-3xl md:text-4xl font-bold text-slate-300 mb-4">
+                                    Are You Tired?
+                                </h2>
+                                <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+                                    Maybe I can help you with some things. I also get tired sometimes, at that time my friends listen and give the best solution
+                                </p>        
+                            </div>
+                        </AnimatedContent>
                     </div>
 
                     <div className="flex flex-col space-y-8">
