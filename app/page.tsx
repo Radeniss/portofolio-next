@@ -30,7 +30,6 @@ export default function Home() {
         },
     ]
     
-    // ... array 'helps' tetap sama
     const helps =[
         {
             title: 'Coding Help',
@@ -156,12 +155,11 @@ export default function Home() {
                                     icon={skill.icon}
                                     name={skill.name}
                                     desc={skill.desc}
-                                    index={index} // Pastikan index diteruskan
+                                    index={index}
                                 />
                             ))}
                         </div>
                     </div>
-                {/* ✨ Hapus div penutup AnimatedContent */}
                 </div>
             </section>
             
