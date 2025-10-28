@@ -135,16 +135,30 @@ export default function Home() {
 
             {/* Skills Section */}
             <section className="py-10">
-                {/* ✨ Hapus Komponen AnimatedContent di sini */}
                 <div> 
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-4xl font-bold text-slate-300 mb-4">
-                                What I Do
-                            </h2>
-                            <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-                                I specialize in creating comprehensive digital solutions from concept to deployment
-                            </p>
+                            <AnimatedContent
+                                distance={150}
+                                direction="vertical"
+                                reverse={false}
+                                duration={0.8}
+                                ease=""
+                                initialOpacity={0.2}
+                                animateOpacity
+                                scale={1.1}
+                                threshold={0.2}
+                                delay={0.15}
+                                >
+                                <div>
+                                <h2 className="text-3xl md:text-4xl font-bold text-slate-300 mb-4">
+                                    What I Do
+                                </h2>
+                                <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+                                    I specialize in creating comprehensive digital solutions from concept to deployment
+                                </p>
+                                </div>
+                            </AnimatedContent>
                         </div>
 
                         
@@ -167,12 +181,27 @@ export default function Home() {
             <section className="py-60">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className='text-center mb-16'>
+                        <AnimatedContent
+                                distance={150}
+                                direction="vertical"
+                                reverse={false}
+                                duration={0.8}
+                                ease=""
+                                initialOpacity={0.2}
+                                animateOpacity
+                                scale={1.1}
+                                threshold={0.2}
+                                delay={0.15}
+                                >
+                                <div>
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-300 mb-4">
                             Are You Tired?
                         </h2>
                         <p className="text-lg text-slate-300 max-w-2xl mx-auto">
                             Maybe I can help you with some things. I also get tired sometimes, at that time my friends listen and give the best solution
                         </p>
+                         </div>
+                            </AnimatedContent>
                     </div>
 
                     <div className="flex flex-col space-y-8">

@@ -2,6 +2,7 @@
 
 import {useState} from 'react';
 import PixelTransition from '../app/PixelTransition';
+import AnimatedContent from '../app/AnimatedContent';
 
 export default function HelpCard ({helpData}) {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -17,6 +18,19 @@ export default function HelpCard ({helpData}) {
     const paragraphs = displayText.split('\n\n');
 
     return (
+            <AnimatedContent
+                                distance={150}
+                                direction="vertical"
+                                reverse={false}
+                                duration={0.8}
+                                ease=""
+                                initialOpacity={0.2}
+                                animateOpacity
+                                scale={1.1}
+                                threshold={0.2}
+                                delay={0.15}
+                                >
+                                <div>
         <div className="flex flex-col md:flex-row items-stretch md:gap-[40px] gap-6">
             <PixelTransition 
                 className="custom-pixel-card w-1/2 mx-auto md:w-[200px] h-full border-2 border-white rounded-lg" 
@@ -77,7 +91,10 @@ export default function HelpCard ({helpData}) {
             </button>
             )}
              </div>
+
         </div>
+             </div>
+            </AnimatedContent>
     );
 
 }
