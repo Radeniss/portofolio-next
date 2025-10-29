@@ -3,6 +3,8 @@
 import {useState} from 'react';
 import PixelTransition from '../app/PixelTransition';
 import AnimatedContent from '../app/AnimatedContent';
+import GlareHover from './GlareHover';
+
 
 export default function HelpCard ({helpData}) {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -60,6 +62,14 @@ export default function HelpCard ({helpData}) {
                     />
 
                     {/* 2. Kartu Deskripsi */}
+                    <GlareHover
+                        glareColor="#ffffff" 
+                        glareOpacity={0.3}  
+                        glareAngle={-45}    
+                        glareSize={300}     
+                        transitionDuration={500}
+                        playOnce={false}
+                    >
                     <div 
                         className="card group hover:transform transition-all duration-300
                         bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg 
@@ -91,6 +101,7 @@ export default function HelpCard ({helpData}) {
                     </button>
                     )}
                     </div>
+                    </GlareHover>
 
                 </div>
             </div>
