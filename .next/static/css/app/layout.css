@@ -937,6 +937,9 @@ div[class*="Particles"] > canvas {
 .flex-1 {
   flex: 1 1 0%;
 }
+.flex-none {
+  flex: none;
+}
 .shrink-0 {
   flex-shrink: 0;
 }

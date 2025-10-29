@@ -35,7 +35,7 @@ export default function HelpCard ({helpData}) {
             <div>
                 <div className="flex flex-col md:flex-row items-stretch md:gap-[40px] gap-6">
                     <PixelTransition 
-                        className="custom-pixel-card w-1/2 mx-auto md:w-[200px] h-full border-2 border-white rounded-lg" 
+                        className="custom-pixel-card w-1/2 mx-auto md:w-[200px] h-full border-2 border-white rounded-lg flex-none"
                         firstContent={
                             <img
                                 src={helpData.img}
@@ -69,6 +69,7 @@ export default function HelpCard ({helpData}) {
                         glareSize={300}     
                         transitionDuration={500}
                         playOnce={false}
+                        background='none'
                     >
                     <div 
                         className="card group hover:transform transition-all duration-300
