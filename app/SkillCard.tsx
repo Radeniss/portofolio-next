@@ -1,6 +1,7 @@
 // components/SkillCard.jsx
 import { Code, Globe, Palette } from 'lucide-react'; 
 import AnimatedContent from './AnimatedContent';
+import GlareHover from '../components/GlareHover';
 
 
 export default function SkillCard({ icon: Icon, name, desc, index }) {
@@ -19,6 +20,15 @@ export default function SkillCard({ icon: Icon, name, desc, index }) {
             threshold={0.3}
             delay={index * 0.15} 
         >
+            <GlareHover
+                        glareColor="#ffffff" 
+                        glareOpacity={0.3}  
+                        glareAngle={-45}    
+                        glareSize={300}     
+                        transitionDuration={1000}
+                        playOnce={false}
+                        background='none'
+                    >
             <div
                 className="card group hover:transform hover:scale-105 transition-all duration-300
                            bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg"
@@ -33,6 +43,7 @@ export default function SkillCard({ icon: Icon, name, desc, index }) {
                     {desc}
                 </p>
             </div>
+            </GlareHover>
         </AnimatedContent>
     );
 }

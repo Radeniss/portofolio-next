@@ -67,7 +67,7 @@ export default function HelpCard ({helpData}) {
                         glareOpacity={0.3}  
                         glareAngle={-45}    
                         glareSize={300}     
-                        transitionDuration={500}
+                        transitionDuration={1000}
                         playOnce={false}
                         background='none'
                     >
