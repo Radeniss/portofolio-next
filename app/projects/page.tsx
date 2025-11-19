@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Calendar, Clock, Star, Github, ExternalLink } from 'lucide-react'
+import DescCard from '@/components/DescCard'
 
 export const metadata = {
   title: 'Projects - mahelbee',
@@ -106,8 +107,6 @@ export default function Projects() {
       {/* Header */}
       <section className="py-20"
       style={{ 
-          // backgroundImage: "url('/img/background.png')",
-          // backgroundColor: "rgba(0, 0, 0, 0.5)",
           backgroundBlendMode: "overlay"}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 animate-slide-in">

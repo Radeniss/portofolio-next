@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { ArrowRight, Download, Code, Palette, Globe } from 'lucide-react'
 import SplitText from './SplitText'
 import TiltedCard from './TilteCard';
-import HelpCard from '../components/HelpCard';
+import DescCard from '../components/DescCard';
 import SkillCard from './SkillCard';
 import { useState } from 'react';
 import AnimatedContent from './AnimatedContent';
@@ -206,7 +206,7 @@ export default function Home() {
 
                     <div className="flex flex-col space-y-8">
                         {helps.map((help, index) => (
-                            <HelpCard key={index} helpData={help}
+                            <DescCard key={index} descData={help}
                         />
                         ))}
                     </div>

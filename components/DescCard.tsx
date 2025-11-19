@@ -6,10 +6,10 @@ import AnimatedContent from '../app/AnimatedContent';
 import GlareHover from './GlareHover';
 
 
-export default function HelpCard ({helpData}) {
+export default function DescCard ({descData}) {
     const [isExpanded, setIsExpanded] = useState(false);
 
-    const fullText = helpData.desc.join('\n\n');
+    const fullText = descData.desc.join('\n\n');
     const characterLimit = 170;
     const isTooLong = fullText.length > characterLimit;
 
@@ -38,8 +38,8 @@ export default function HelpCard ({helpData}) {
                         className="custom-pixel-card w-1/2 mx-auto md:w-[200px] h-full border-2 border-white rounded-lg flex-none"
                         firstContent={
                             <img
-                                src={helpData.img}
-                                alt={helpData.title}
+                                src={descData.img}
+                                alt={descData.title}
                                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
                             />
                         }
@@ -53,7 +53,7 @@ export default function HelpCard ({helpData}) {
                                     backgroundColor: "#111"
                                 }}
                             >
-                                <p style={{ fontWeight: 900, fontSize: "2rem", color: "#ffffff" }} >{helpData.quote}</p>
+                                <p style={{ fontWeight: 900, fontSize: "2rem", color: "#ffffff" }} >{descData.quote}</p>
                             </div>
                         }
                         gridSize={12}
@@ -78,7 +78,7 @@ export default function HelpCard ({helpData}) {
                     > 
                     <div className="mb-6">
                         <p className=" text-slate-300 text-3xl font-bold">
-                            {helpData.title}
+                            {descData.title}
                         </p>
                     </div>
                     <div className="text-md text-slate-300 flex-1"> 
