@@ -1,7 +1,5 @@
 import Image from 'next/image'
 import { ExternalLink, Github } from 'lucide-react'
-import DescCard from '@/components/DescCard'
-import AnimatedContent from '../AnimatedContent'
 
 export const metadata = {
   title: 'Portfolio - mahelbee',
@@ -43,13 +41,8 @@ export default function Portfolio() {
       {/* Portfolio Grid */}
       <section className="py-5">
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='mb-16'>
-            <div className="flex flex-col space-y-8">
-                  {portfolioItems.map((portfolioItem, index) => (
-                  <DescCard key={index} descData={portfolioItem}
-                />
-              ))}
-            </div>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+
           </div>
         </div>
       </section>

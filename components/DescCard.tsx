@@ -8,7 +8,6 @@ import GlareHover from './GlareHover';
 
 export default function DescCard ({descData}) {
     const [isExpanded, setIsExpanded] = useState(false);
-
     const fullText = descData.desc.join('\n\n');
     const characterLimit = 170;
     const isTooLong = fullText.length > characterLimit;
