@@ -814,6 +814,9 @@ div[class*="Particles"] > canvas {
 .mt-8 {
   margin-top: 2rem;
 }
+.mb-20 {
+  margin-bottom: 5rem;
+}
 .line-clamp-2 {
   overflow: hidden;
   display: -webkit-box;
@@ -877,6 +880,9 @@ div[class*="Particles"] > canvas {
 .h-screen {
   height: 100vh;
 }
+.h-10 {
+  height: 2.5rem;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -912,6 +918,9 @@ div[class*="Particles"] > canvas {
 }
 .w-full {
   width: 100%;
+}
+.w-10 {
+  width: 2.5rem;
 }
 .max-w-2xl {
   max-width: 42rem;
@@ -1110,6 +1119,10 @@ div[class*="Particles"] > canvas {
 .border-none {
   border-style: none;
 }
+.border-gray-100 {
+  --tw-border-opacity: 1;
+  border-color: rgb(243 244 246 / var(--tw-border-opacity, 1));
+}
 .border-slate-100 {
   --tw-border-opacity: 1;
   border-color: rgb(241 245 249 / var(--tw-border-opacity, 1));
@@ -1128,10 +1141,6 @@ div[class*="Particles"] > canvas {
 }
 .border-white\/20 {
   border-color: rgb(255 255 255 / 0.2);
-}
-.border-gray-100 {
-  --tw-border-opacity: 1;
-  border-color: rgb(243 244 246 / var(--tw-border-opacity, 1));
 }
 .bg-\[\#222\] {
   --tw-bg-opacity: 1;
@@ -1390,9 +1399,21 @@ div[class*="Particles"] > canvas {
   --tw-text-opacity: 1;
   color: rgb(30 64 175 / var(--tw-text-opacity, 1));
 }
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity, 1));
+}
+.text-gray-800 {
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity, 1));
+}
 .text-green-800 {
   --tw-text-opacity: 1;
   color: rgb(22 101 52 / var(--tw-text-opacity, 1));
+}
+.text-indigo-600 {
+  --tw-text-opacity: 1;
+  color: rgb(79 70 229 / var(--tw-text-opacity, 1));
 }
 .text-indigo-800 {
   --tw-text-opacity: 1;
@@ -1462,17 +1483,13 @@ div[class*="Particles"] > canvas {
   --tw-text-opacity: 1;
   color: rgb(133 77 14 / var(--tw-text-opacity, 1));
 }
-.text-gray-600 {
+.text-gray-900 {
   --tw-text-opacity: 1;
-  color: rgb(75 85 99 / var(--tw-text-opacity, 1));
+  color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }
-.text-gray-800 {
+.text-gray-500 {
   --tw-text-opacity: 1;
-  color: rgb(31 41 55 / var(--tw-text-opacity, 1));
-}
-.text-indigo-600 {
-  --tw-text-opacity: 1;
-  color: rgb(79 70 229 / var(--tw-text-opacity, 1));
+  color: rgb(107 114 128 / var(--tw-text-opacity, 1));
 }
 .opacity-0 {
   opacity: 0;
@@ -1526,13 +1543,13 @@ div[class*="Particles"] > canvas {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
-.transition-transform {
-  transition-property: transform;
+.transition-shadow {
+  transition-property: box-shadow;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
-.transition-shadow {
-  transition-property: box-shadow;
+.transition-transform {
+  transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -1550,6 +1567,9 @@ div[class*="Particles"] > canvas {
 }
 .duration-500 {
   transition-duration: 500ms;
+}
+.duration-150 {
+  transition-duration: 150ms;
 }
 .will-change-transform {
   will-change: transform;
@@ -1576,6 +1596,9 @@ div[class*="Particles"] > canvas {
 }
 .duration-500 {
   animation-duration: 500ms;
+}
+.duration-150 {
+  animation-duration: 150ms;
 }
 .delay-500 {
   animation-delay: 500ms;
@@ -1674,6 +1697,13 @@ div[class*="Particles"] > canvas {
 
 
 
+.hover\:text-indigo-800:hover {
+  --tw-text-opacity: 1;
+  color: rgb(55 48 163 / var(--tw-text-opacity, 1));
+}
+
+
+
 .hover\:text-primary-600:hover {
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity, 1));
@@ -1712,13 +1742,6 @@ div[class*="Particles"] > canvas {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-
-
-
-.hover\:text-indigo-800:hover {
-  --tw-text-opacity: 1;
-  color: rgb(55 48 163 / var(--tw-text-opacity, 1));
 }
 
 
@@ -1913,10 +1936,6 @@ div[class*="Particles"] > canvas {
 
 
 @media (min-width: 1024px) {
-
-  .lg\:grid {
-    display: grid;
-  }
 
   .lg\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));

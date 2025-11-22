@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { ExternalLink, Github } from 'lucide-react'
+import PortofolioGrid from '@/components/PortofolioGrid'
 
 export const metadata = {
   title: 'Portfolio - mahelbee',
@@ -11,12 +12,15 @@ export default function Portfolio() {
     {
       id: 1,
       title: 'Learn Together',
+      publisher : 'mahelbee',
       img: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600',
       desc : [`The students were very enthusiastic about learning, and many of them wanted to listen and try. We learned how to grow watermelons, with a learning target of approximately three weeks. The students learned how to select good watermelon seeds, sow them, and prepare a nutritious and suitable growing medium for watermelons.`]
     },
     {
       id: 2,
       title: 'Learning Python Language with Students',
+      publisher : 'mahelbee',
+      icon : 'https://cdn-icons-png.flaticon.com/512/5968/5968350.png',
       img: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600',
       desc : [`I learned the basics of Python and introduced a bit to OOP. Many students still dont understand what coding is or what its functions are. However, many of them are curious, which motivates me to teach and mentor.`]
     }
@@ -39,10 +43,10 @@ export default function Portfolio() {
       </section>
 
       {/* Portfolio Grid */}
-      <section className="py-5">
+      <section className="py-5 mb-20">
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-
+            <PortofolioGrid portofolioItems={portfolioItems} />
           </div>
         </div>
       </section>
