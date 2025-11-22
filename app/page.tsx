@@ -88,47 +88,55 @@ export default function Home() {
                                 Hello, I'm <span className="text-blue-300">mahelbee</span>
                             </SplitText>
                             
-                            <h2 className="text-xl md:text-2xl text-primary-100 mb-6 animate-slide-in">
-                                Full-Stack Developer & UI/UX Designer
-                            </h2>
-                            <p className="text-lg text-slate-300 mb-8 max-w-xl leading-relaxed animate-slide-in">
-                                I love the evolution of the modern world, with features that make it easier for me to complete various tasks. Let's learn together and grow to be better.
-                            </p>
-                            <div className="flex flex-col sm:flex-row gap-4">
-                                <Link href="/portfolio" className="btn-primary inline-flex items-center justify-center animate-slide-in delay-500">
-                                    View My Work
-                                    <ArrowRight className="h-5 w-5 ml-2" />
-                                </Link>
-                                <button className="btn-secondary inline-flex items-center justify-center animate-slide-in delay-600">
-                                    Download CV
-                                    <Download className="h-5 w-5 ml-2" />
-                                </button>
-                            </div>
+                            <AnimatedContent delay={0.5} distance={30} direction="vertical" duration={0.8}>
+                                <h2 className="text-xl md:text-2xl text-primary-100 mb-6">
+                                    Full-Stack Developer & UI/UX Designer
+                                </h2>
+                            </AnimatedContent>
+                            <AnimatedContent delay={0.7} distance={30} direction="vertical" duration={0.8}>
+                                <p className="text-lg text-slate-300 mb-8 max-w-xl leading-relaxed">
+                                    I love the evolution of the modern world, with features that make it easier for me to complete various tasks. Let's learn together and grow to be better.
+                                </p>
+                            </AnimatedContent>
+                            <AnimatedContent delay={0.9} distance={30} direction="vertical" duration={0.8}>
+                                <div className="flex flex-col sm:flex-row gap-4">
+                                    <Link href="/portfolio" className="btn-primary inline-flex items-center justify-center">
+                                        View My Work
+                                        <ArrowRight className="h-5 w-5 ml-2" />
+                                    </Link>
+                                    <button className="btn-secondary inline-flex items-center justify-center">
+                                        Download CV
+                                        <Download className="h-5 w-5 ml-2" />
+                                    </button>
+                                </div>
+                            </AnimatedContent>
                         </div>
 
-                        <div className="relative animate-fade-in">
-                            <div className="w-80 h-80 mx-auto relative">
-                                <div className="absolute shadow-2xl">
-                                    <TiltedCard
-                                        imageSrc="/img/me.png"
-                                        altText="mahelbee - GNX Album Cover"
-                                        captionText="it's me brohh.."
-                                        containerHeight="300px"
-                                        containerWidth="300px"
-                                        imageHeight="300px"
-                                        imageWidth="300px"
-                                        rotateAmplitude={12}
-                                        scaleOnHover={1.2}
-                                        showMobileWarning={false}
-                                        showTooltip={true}
-                                        displayOverlayContent={true}
-                                        overlayContent={
-                                            <p className="tilted-card-demo-text" />
-                                        }
-                                    />
+                        <AnimatedContent delay={0.5} distance={50} direction="vertical" duration={1}>
+                            <div className="relative">
+                                <div className="w-80 h-80 mx-auto relative">
+                                    <div className="absolute shadow-2xl">
+                                        <TiltedCard
+                                            imageSrc="/img/me.png"
+                                            altText="mahelbee - GNX Album Cover"
+                                            captionText="it's me brohh.."
+                                            containerHeight="300px"
+                                            containerWidth="300px"
+                                            imageHeight="300px"
+                                            imageWidth="300px"
+                                            rotateAmplitude={12}
+                                            scaleOnHover={1.2}
+                                            showMobileWarning={false}
+                                            showTooltip={true}
+                                            displayOverlayContent={true}
+                                            overlayContent={
+                                                <p className="tilted-card-demo-text" />
+                                            }
+                                        />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </AnimatedContent>
                     </div>
                 </div>
             </section>
@@ -178,7 +186,7 @@ export default function Home() {
             </section>
             
             {/* Are You Tired? Section (Help Section) */}
-            <section className="py-60">
+            <section className="py-48">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className='text-center mb-16'>
                         <AnimatedContent
@@ -206,7 +214,7 @@ export default function Home() {
 
                     <div className="flex flex-col space-y-8">
                         {helps.map((help, index) => (
-                            <DescCard key={index} descData={help}
+                            <DescCard key={index} descData={help} index={index}
                         />
                         ))}
                     </div>
@@ -216,17 +224,19 @@ export default function Home() {
             
             {/* CTA Section */}
             <section className="py-20 bg-gradient-to-r from-primary-600 to-secondary-600">
-                <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Ready to Start a Project?
-                    </h2>
-                    <p className="text-xl text-primary-100 mb-8">
-                        Let&apos;s work together to bring your ideas to life
-                    </p>
-                    <button className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-primary-50 transition-colors transform hover:scale-105">
-                        Get In Touch
-                    </button>
-                </div>
+                <AnimatedContent distance={50} direction="vertical" duration={0.8}>
+                    <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                            Ready to Start a Project?
+                        </h2>
+                        <p className="text-xl text-primary-100 mb-8">
+                            Let&apos;s work together to bring your ideas to life
+                        </p>
+                        <button className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-primary-50 transition-colors transform hover:scale-105">
+                            Get In Touch
+                        </button>
+                    </div>
+                </AnimatedContent>
             </section>
         </div>
     );
