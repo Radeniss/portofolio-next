@@ -88,7 +88,7 @@ export default function DescCard ({descData, index}) {
                         {descData.title}
                     </p>
                 </div>
-                <div className="text-md text-slate-300 flex-1"> 
+                <div className="text-sm md:text-md text-slate-300 flex-1"> 
                     {paragraphs.map((paragraph, pIndex) => (
                     <p 
                         key={pIndex} 
