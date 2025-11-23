@@ -36,49 +36,49 @@ export default function PortfolioGrid ({portofolioItems}) {
                     threshold={0.2}
                     delay={index * 0.1}
                 >
-                    <GlareHover
-                        glareColor="#ffffff"
-                        glareOpacity={0.3}
-                        glareAngle={-45}
-                        glareSize={300}
-                        transitionDuration={1000}
-                        playOnce={false}
-                        background='none'
-                    >
-                        <div 
-                            className="h-[400px] card group hover:shadow-xl transition-all duration-300 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg"
-                        >
-                            <div className='relative w-full h-48'>
-                                <Image
-                                    src={item.img}
-                                    alt={item.title}
-                                    fill
-                                    style={{ objectFit: 'cover' }}
-                                    className='transition-transform duration-500 hover:scale-105 rounded-lg'
-                                />
-                            </div>
-
-                            <div className='pt-6 flex flex-col flex-grow'>
-                                <h3 className='text-xl font-semibold text-slate-300 mb-3 group-hover:text-primary-300 transition-colors'>
-                                    {displayTitle}
-                                </h3>
-                                <p className='text-slate-300 leading-relaxed'>
-                                    {displayText}
-                                </p>
-                                <div className='flex items-center justify-between mt-4 border-t pt-4 border-white/20'>
-                                        <div className='flex items-center space-x-3'>
-                                        <img 
-                                            className='w-10 h-10 rounded-full object-cover' 
-                                            src={item.icon || 'https://via.placeholder.com/40'} 
-                                            alt={`${item.author} icon`}
-                                        />
-                                        <p className='text-sm font-semibold text-slate-300'>{item.author}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </GlareHover>
-                </AnimatedContent>
+                                        <GlareHover
+                                            glareColor="#ffffff"
+                                            glareOpacity={0.3}
+                                            glareAngle={-45}
+                                            glareSize={300}
+                                            transitionDuration={1000}
+                                            playOnce={false}
+                                            background='bg-white/10'
+                                            className='backdrop-blur-md border border-white/20 p-6 rounded-lg h-[400px]'
+                                        >
+                                            <div
+                                                className='h-full flex flex-col'
+                                            >
+                                                <div className='relative w-full h-48'>
+                                                    <Image
+                                                        src={item.img}
+                                                        alt={item.title}
+                                                        fill
+                                                        style={{ objectFit: 'cover' }}
+                                                        className='transition-transform duration-500 hover:scale-105 rounded-lg'
+                                                    />
+                                                </div>
+                    
+                                                <div className='pt-6 flex flex-col flex-grow'>
+                                                    <h3 className='text-xl font-semibold text-slate-300 mb-3'>
+                                                        {displayTitle}
+                                                    </h3>
+                                                    <p className='text-slate-300 leading-relaxed flex-grow'>
+                                                        {displayText}
+                                                    </p>
+                                                    <div className='flex items-center justify-between mt-4 border-t pt-4 border-white/20'>
+                                                            <div className='flex items-center space-x-3'>
+                                                            <img
+                                                                className='w-10 h-10 rounded-full object-cover'
+                                                                src={item.icon || 'https://via.placeholder.com/40'}
+                                                                alt={`${item.author} icon`}
+                                                            />
+                                                            <p className='text-sm font-semibold text-slate-300'>{item.author}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </GlareHover>                </AnimatedContent>
             );})}
         </>
     );
