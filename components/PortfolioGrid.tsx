@@ -44,7 +44,7 @@ export default function PortfolioGrid ({portofolioItems}) {
                                             transitionDuration={1000}
                                             playOnce={false}
                                             background='bg-white/10'
-                                            className='backdrop-blur-md border border-white/20 p-6 rounded-lg h-[400px]'
+                                            className='backdrop-blur-md border border-white/20 p-6 rounded-lg h-[550px]'
                                         >
                                             <div
                                                 className='h-full flex flex-col'
