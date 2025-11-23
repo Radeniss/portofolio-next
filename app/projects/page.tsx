@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import { Calendar, Clock, Star, Github, ExternalLink } from 'lucide-react'
-import DescCard from '@/components/DescCard'
+import ProjectGrid from '@/components/ProjectGrid'
 
 export const metadata = {
   title: 'Projects - mahelbee',
@@ -86,194 +85,24 @@ export default function Projects() {
     }
   ]
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'Active':
-        return 'bg-green-100 text-green-800'
-      case 'Maintenance':
-        return 'bg-yellow-100 text-yellow-800'
-      case 'Complete':
-        return 'bg-blue-100 text-blue-800'
-      default:
-        return 'bg-slate-100 text-slate-800'
-    }
-  }
-
-  const featuredProjects = projects.filter(project => project.featured)
-  const otherProjects = projects.filter(project => !project.featured)
-
   return (
     <div className="pt-16">
       {/* Header */}
-      <section className="py-20"
-      style={{ 
-          backgroundBlendMode: "overlay"}}>
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 animate-slide-in">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             My Projects
           </h1>
-          <p className="text-xl text-primary-100 max-w-2xl mx-auto animate-fade-in">
+          <p className="text-xl text-primary-100 max-w-2xl mx-auto">
             Personal projects and open source contributions that showcase my development skills
           </p>
         </div>
       </section>
 
-      {/* Featured Projects */}
-      <section className="py-20 ">
+      {/* All Projects */}
+      <section className="py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-800 mb-12 text-center">
-            Featured Projects
-          </h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-            {featuredProjects.map((project, index) => (
-              <div 
-                key={project.id} 
-                className="card group hover:shadow-2xl transition-all duration-300 animate-slide-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="flex justify-between items-start mb-4">
-                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(project.status)}`}>
-                    {project.status}
-                  </span>
-                  {/* <div className="flex space-x-2">
-                    <a 
-                      href={project.githubUrl} 
-                      className="text-slate-400 hover:text-slate-600 transition-colors"
-                      aria-label={`View ${project.title} on GitHub`}
-                    >
-                      <Github className="h-5 w-5" />
-                    </a>
-                    <a 
-                      href={project.liveUrl} 
-                      className="text-slate-400 hover:text-slate-600 transition-colors"
-                      aria-label={`View ${project.title} live demo`}
-                    >
-                      <ExternalLink className="h-5 w-5" />
-                    </a>
-                  </div> */}
-                </div>
-                
-                <h3 className="text-2xl font-bold text-slate-800 mb-3 group-hover:text-primary-600 transition-colors">
-                  {project.title}
-                </h3>
-                
-                <p className="text-slate-600 mb-4 leading-relaxed">
-                  {project.longDescription}
-                </p>
-                
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech) => (
-                    <span 
-                      key={tech} 
-                      className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm hover:bg-primary-100 hover:text-primary-700 transition-colors"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                
-                <div className="flex items-center justify-between text-sm text-slate-500 pt-4 border-t border-slate-100">
-                  <div className="flex items-center space-x-4">
-                    <span className="flex items-center">
-                      <Calendar className="h-4 w-4 mr-1" />
-                      {new Date(project.date).toLocaleDateString()}
-                    </span>
-                    <span className="flex items-center">
-                      <Clock className="h-4 w-4 mr-1" />
-                      {project.duration}
-                    </span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <span className="flex items-center">
-                      <Star className="h-4 w-4 mr-1 text-yellow-500" />
-                      {project.stars}
-                    </span>
-                    <span>{project.forks} forks</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Other Projects */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-800 mb-12 text-center">
-            Other Projects
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {otherProjects.map((project, index) => (
-              <div 
-                key={project.id} 
-                className="card group hover:shadow-xl transition-all duration-300 animate-slide-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="flex justify-between items-start mb-4">
-                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(project.status)}`}>
-                    {project.status}
-                  </span>
-                  {/* <div className="flex space-x-2">
-                    <a 
-                      href={project.githubUrl} 
-                      className="text-slate-400 hover:text-slate-600 transition-colors"
-                      aria-label={`View ${project.title} on GitHub`}
-                    >
-                      <Github className="h-5 w-5" />
-                    </a>
-                    <a 
-                      href={project.liveUrl} 
-                      className="text-slate-400 hover:text-slate-600 transition-colors"
-                      aria-label={`View ${project.title} live demo`}
-                    >
-                      <ExternalLink className="h-5 w-5" />
-                    </a>
-                  </div> */}
-                </div>
-                
-                <h3 className="text-xl font-bold text-slate-800 mb-3 group-hover:text-primary-600 transition-colors">
-                  {project.title}
-                </h3>
-                
-                <p className="text-slate-600 mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.slice(0, 4).map((tech) => (
-                    <span 
-                      key={tech} 
-                      className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm hover:bg-primary-100 hover:text-primary-700 transition-colors"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                  {project.technologies.length > 4 && (
-                    <span className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm">
-                      +{project.technologies.length - 4} more
-                    </span>
-                  )}
-                </div>
-                
-                <div className="flex items-center justify-between text-sm text-slate-500 pt-4 border-t border-slate-100">
-                  <span className="flex items-center">
-                    <Calendar className="h-4 w-4 mr-1" />
-                    {new Date(project.date).toLocaleDateString()}
-                  </span>
-                  <div className="flex items-center space-x-3">
-                    <span className="flex items-center">
-                      <Star className="h-4 w-4 mr-1 text-yellow-500" />
-                      {project.stars}
-                    </span>
-                    <span>{project.forks} forks</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ProjectGrid projects={projects} />
         </div>
       </section>
 
