@@ -8,7 +8,7 @@ import AnimatedContent from '../app/AnimatedContent';
 export default function PortfolioGrid ({portofolioItems}) {
     // const [isExpanded, setIsExpanded] = useState(false);
     const titleLimit = 50;
-    const characterLimit = 300; // Updated character limit for consistency
+    const characterLimit = 250; // Updated character limit for consistency
 
     return (
         // <div className=''>
