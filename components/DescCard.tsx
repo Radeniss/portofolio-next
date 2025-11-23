@@ -19,7 +19,7 @@ export default function DescCard ({descData, index}) {
     const paragraphs = displayText.split('\n\n');
 
     return (
-        <div className="flex flex-col md:flex-row items-stretch md:gap-[40px] gap-6">
+        <div className="flex flex-row items-start gap-6">
             <AnimatedContent
                 distance={100}
                 direction="horizontal"
@@ -30,7 +30,7 @@ export default function DescCard ({descData, index}) {
                 delay={index * 0.2}
             >
                 <PixelTransition 
-                    className="custom-pixel-card w-1/2 mx-auto md:w-[200px] h-full border-2 border-white rounded-lg flex-none"
+                    className="custom-pixel-card w-[80px] h-[80px] md:w-[200px] md:h-[200px] mx-auto border-2 border-white rounded-lg flex-none flex-shrink-0"
                     firstContent={
                         <img
                             src={descData.img}

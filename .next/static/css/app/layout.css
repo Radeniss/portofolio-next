@@ -877,17 +877,20 @@ div[class*="Particles"] > canvas {
 .h-80 {
   height: 20rem;
 }
+.h-\[120px\] {
+  height: 120px;
+}
 .h-full {
   height: 100%;
 }
 .h-screen {
   height: 100vh;
 }
+.h-\[80px\] {
+  height: 80px;
+}
 .min-h-screen {
   min-height: 100vh;
-}
-.w-1\/2 {
-  width: 50%;
 }
 .w-10 {
   width: 2.5rem;
@@ -916,11 +919,17 @@ div[class*="Particles"] > canvas {
 .w-80 {
   width: 20rem;
 }
+.w-\[120px\] {
+  width: 120px;
+}
 .w-\[300px\] {
   width: 300px;
 }
 .w-full {
   width: 100%;
+}
+.w-\[80px\] {
+  width: 80px;
 }
 .max-w-2xl {
   max-width: 42rem;
@@ -948,6 +957,9 @@ div[class*="Particles"] > canvas {
 }
 .flex-none {
   flex: none;
+}
+.flex-shrink-0 {
+  flex-shrink: 0;
 }
 .shrink-0 {
   flex-shrink: 0;
@@ -1004,6 +1016,9 @@ div[class*="Particles"] > canvas {
 }
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.flex-row {
+  flex-direction: row;
 }
 .flex-col {
   flex-direction: column;
@@ -1118,10 +1133,6 @@ div[class*="Particles"] > canvas {
 }
 .border-none {
   border-style: none;
-}
-.border-gray-100 {
-  --tw-border-opacity: 1;
-  border-color: rgb(243 244 246 / var(--tw-border-opacity, 1));
 }
 .border-slate-100 {
   --tw-border-opacity: 1;
@@ -1309,25 +1320,17 @@ div[class*="Particles"] > canvas {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+.py-48 {
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+}
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
 }
-.py-60 {
-  padding-top: 15rem;
-  padding-bottom: 15rem;
-}
 .py-\[4px\] {
   padding-top: 4px;
   padding-bottom: 4px;
-}
-.py-40 {
-  padding-top: 10rem;
-  padding-bottom: 10rem;
-}
-.py-48 {
-  padding-top: 12rem;
-  padding-bottom: 12rem;
 }
 .pt-16 {
   padding-top: 4rem;
@@ -1335,11 +1338,11 @@ div[class*="Particles"] > canvas {
 .pt-4 {
   padding-top: 1rem;
 }
-.pt-8 {
-  padding-top: 2rem;
-}
 .pt-6 {
   padding-top: 1.5rem;
+}
+.pt-8 {
+  padding-top: 2rem;
 }
 .text-left {
   text-align: left;
@@ -1409,18 +1412,6 @@ div[class*="Particles"] > canvas {
 .text-blue-800 {
   --tw-text-opacity: 1;
   color: rgb(30 64 175 / var(--tw-text-opacity, 1));
-}
-.text-gray-600 {
-  --tw-text-opacity: 1;
-  color: rgb(75 85 99 / var(--tw-text-opacity, 1));
-}
-.text-gray-800 {
-  --tw-text-opacity: 1;
-  color: rgb(31 41 55 / var(--tw-text-opacity, 1));
-}
-.text-gray-900 {
-  --tw-text-opacity: 1;
-  color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }
 .text-green-800 {
   --tw-text-opacity: 1;
@@ -1546,21 +1537,10 @@ div[class*="Particles"] > canvas {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
-.transition-shadow {
-  transition-property: box-shadow;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
 .transition-transform {
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
-}
-.delay-500 {
-  transition-delay: 500ms;
-}
-.delay-600 {
-  transition-delay: 600ms;
 }
 .duration-200 {
   transition-duration: 200ms;
@@ -1596,12 +1576,6 @@ div[class*="Particles"] > canvas {
 }
 .duration-500 {
   animation-duration: 500ms;
-}
-.delay-500 {
-  animation-delay: 500ms;
-}
-.delay-600 {
-  animation-delay: 600ms;
 }
 .\[perspective\:800px\] {
   perspective: 800px;
@@ -1795,14 +1769,6 @@ div[class*="Particles"] > canvas {
 
 
 
-.group:hover .group-hover\:scale-105 {
-  --tw-scale-x: 1.05;
-  --tw-scale-y: 1.05;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-
-
 .group:hover .group-hover\:bg-primary-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(191 219 254 / var(--tw-bg-opacity, 1));
@@ -1882,6 +1848,10 @@ div[class*="Particles"] > canvas {
     height: 6rem;
   }
 
+  .md\:h-\[200px\] {
+    height: 200px;
+  }
+
   .md\:w-\[200px\] {
     width: 200px;
   }
@@ -1904,10 +1874,6 @@ div[class*="Particles"] > canvas {
 
   .md\:flex-row {
     flex-direction: row;
-  }
-
-  .md\:gap-\[40px\] {
-    gap: 40px;
   }
 
   .md\:text-2xl {
