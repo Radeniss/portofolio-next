@@ -48,7 +48,7 @@ export default function ProjectGrid({ projects }) { // Removed 'featured' prop
                             background='none'
                         >
                             <div 
-                                className="h-full card group hover:shadow-xl transition-all duration-300 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg"
+                                className="h-[400px] card group hover:shadow-xl transition-all duration-300 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg"
                             >
                                 <div className="flex justify-between items-start mb-4">
                                     <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(project.status)}`}>

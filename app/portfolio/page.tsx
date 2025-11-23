@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { ExternalLink, Github } from 'lucide-react'
-import PortofolioGrid from '@/components/PortofolioGrid'
+import PortfolioGrid from '@/components/PortfolioGrid'
 
 export const metadata = {
   title: 'Portfolio - mahelbee',
@@ -127,7 +127,7 @@ export default function Portfolio() {
       <section className="py-5 mb-20">
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-            <PortofolioGrid portofolioItems={portfolioItems} />
+            <PortfolioGrid portofolioItems={portfolioItems} />
           </div>
         </div>
       </section>
