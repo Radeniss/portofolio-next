@@ -874,8 +874,8 @@ div[class*="Particles"] > canvas {
 .h-80 {
   height: 20rem;
 }
-.h-\[400px\] {
-  height: 400px;
+.h-\[550px\] {
+  height: 550px;
 }
 .h-\[80px\] {
   height: 80px;
@@ -885,9 +885,6 @@ div[class*="Particles"] > canvas {
 }
 .h-screen {
   height: 100vh;
-}
-.h-\[550px\] {
-  height: 550px;
 }
 .min-h-screen {
   min-height: 100vh;
