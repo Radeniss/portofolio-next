@@ -49,10 +49,10 @@ const Navbar = () => {
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2 group shrink-0">
           <Code2 className={`h-8 w-8 transition-colors ${
-            isScrolled ? 'text-primary-600' : 'text-black'
+            isScrolled ? 'text-primary-600' : 'text-blue-600'
           } group-hover:text-secondary-500`} />
           <span className={`text-xl font-bold transition-colors whitespace-nowrap ${
-            isScrolled ? 'text-slate-800' : 'text-black'
+            isScrolled ? 'text-slate-800' : 'text-white'
           } group-hover:text-secondary-500`}>
             DevPortfolio
           </span>

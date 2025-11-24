@@ -109,9 +109,9 @@ export default function Certificates() {
       </section>
       
       {/* Skills Summary */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-800 mb-8">
+          <h2 className="text-3xl font-bold text-white mb-8">
             Certified Skills Overview
           </h2>
           
