@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { portfolioItems } from '@/lib/portfolioData'
 import Link from 'next/link'
+import AnimatedContent from '@/app/AnimatedContent'
 
 type PortfolioDetailProps = {
   params: {
@@ -65,34 +66,37 @@ export default function PortfolioDetail({ params }: PortfolioDetailProps) {
         </div>
         
         <article className='mb-20'>
-          <header className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-10">
-              {item.title}
-            </h1>
-            <div className="flex items-center mb-6">
-              <Image 
-                src={item.icon}
-                alt={`${item.author}'s icon`}
-                width={40}
-                height={40}
-                className="rounded-full mr-4"
-              />
-              <div>
-                <p className="font-semibold text-white">{item.author}</p>
-                <p className="text-sm text-gray-400">Author</p>
+          <AnimatedContent>
+            <header className="text-center mb-12">
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-10">
+                {item.title}
+              </h1>
+              <div className="flex items-center mb-6">
+                <Image 
+                  src={item.icon}
+                  alt={`${item.author}'s icon`}
+                  width={40}
+                  height={40}
+                  className="rounded-full mr-4"
+                />
+                <div>
+                  <p className="font-semibold text-white">{item.author}</p>
+                  <p className="text-sm text-gray-400">Author</p>
+                </div>
               </div>
-            </div>
-          </header>
+            </header>
+          </AnimatedContent>
 
           <div className="space-y-16">
             {item.desc.map((text, index) => (
+              <AnimatedContent key={index} delay={0.2 * (index + 1)}>
                 <PortfolioSection 
-                    key={index}
                     text={text}
                     imageUrl={item.images[index]}
                     imageAlt={`${item.title} - Image ${index + 1}`}
                     reverse={index % 2 === 0}
                 />
+              </AnimatedContent>
             ))}
           </div>
         </article>
