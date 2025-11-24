@@ -66,10 +66,10 @@ export default function PortfolioDetail({ params }: PortfolioDetailProps) {
         
         <article className='mb-20'>
           <header className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-10">
               {item.title}
             </h1>
-            <div className="flex items-center justify-center mb-6">
+            <div className="flex items-center mb-6">
               <Image 
                 src={item.icon}
                 alt={`${item.author}'s icon`}

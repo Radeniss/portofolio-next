@@ -59,7 +59,7 @@ export default function PortfolioGrid({ portofolioItems }) {
                                     
                                     {/* Bagian Konten & Deskripsi */}
                                     <div className='pt-6 flex flex-col flex-grow'>
-                                        <h3 className='text-xl font-semibold text-slate-300 mb-3'>
+                                        <h3 className='text-xl font-semibold text-slate-300 mb-3 hover:text-blue-400 transition-colors'>
                                             {displayTitle}
                                         </h3>
                                         <p className='text-slate-300 leading-relaxed flex-grow'>
