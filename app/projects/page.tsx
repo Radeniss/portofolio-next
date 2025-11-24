@@ -90,10 +90,10 @@ export default function Projects() {
       {/* Header */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 animate-slide-in">
             My Projects
           </h1>
-          <p className="text-xl text-primary-100 max-w-2xl mx-auto">
+          <p className="text-xl text-primary-100 max-w-2xl mx-auto animate-fade-in">
             Personal projects and open source contributions that showcase my development skills
           </p>
         </div>

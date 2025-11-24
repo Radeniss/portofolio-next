@@ -71,7 +71,7 @@ export default function PortfolioDetail({ params }: PortfolioDetailProps) {
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-10">
                 {item.title}
               </h1>
-              <div className="flex items-center mb-6">
+              <div className="flex items-center justify-center mb-6">
                 <Image 
                   src={item.icon}
                   alt={`${item.author}'s icon`}
@@ -81,7 +81,7 @@ export default function PortfolioDetail({ params }: PortfolioDetailProps) {
                 />
                 <div>
                   <p className="font-semibold text-white">{item.author}</p>
-                  <p className="text-sm text-gray-400">Author</p>
+                  <p className="text-sm text-gray-400">Author | {item.date}</p>
                 </div>
               </div>
             </header>

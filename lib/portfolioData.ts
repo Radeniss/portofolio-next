@@ -3,6 +3,7 @@ export const portfolioItems = [
       id: 1,
       title: 'Learn Together',
       author : 'mahelbee',
+      date: '2023-10-12',
       icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968350.png',
       images: [
         'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -19,6 +20,7 @@ export const portfolioItems = [
       id: 2,
       title: 'Learning Python Language with Students',
       author : 'mahelbee',
+      date: '2023-11-15',
       icon : 'https://cdn-icons-png.flaticon.com/512/5968/5968350.png',
       images: [
         'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -35,6 +37,7 @@ export const portfolioItems = [
       id: 3,
       title: 'Introduction to Artificial Intelligence',
       author: 'mahelbee',
+      date: '2023-12-20',
       icon: 'https://cdn-icons-png.flaticon.com/512/1055/1055685.png',
       images: [
         'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -51,6 +54,7 @@ export const portfolioItems = [
       id: 4,
       title: 'Web Development Bootcamp: HTML & CSS',
       author: 'mahelbee',
+      date: '2024-01-10',
       icon: 'https://cdn-icons-png.flaticon.com/512/1051/1051277.png',
       images: [
         'https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -67,6 +71,7 @@ export const portfolioItems = [
       id: 5,
       title: 'Gardening 101: Preparing Your Soil',
       author: 'mahelbee',
+      date: '2024-02-18',
       icon: 'https://cdn-icons-png.flaticon.com/512/2382/2382428.png',
       images: [
         'https://images.pexels.com/photos/60883/soil-dirt-agriculture-natural-60883.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -83,6 +88,7 @@ export const portfolioItems = [
       id: 6,
       title: 'The Magic of Photosynthesis',
       author: 'mahelbee',
+      date: '2024-03-25',
       icon: 'https://cdn-icons-png.flaticon.com/512/2382/2382428.png',
       images: [
         'https://images.pexels.com/photos/220357/pexels-photo-220357.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -99,6 +105,7 @@ export const portfolioItems = [
       id: 7,
       title: 'Physics Fun: Understanding Kinetic Energy',
       author: 'mahelbee',
+      date: '2024-04-02',
       icon: 'https://cdn-icons-png.flaticon.com/512/3304/3304400.png',
       images: [
         'https://images.pexels.com/photos/1542/pen-notes-school-stationery.jpg?auto=compress&cs=tinysrgb&w=600',
@@ -115,6 +122,7 @@ export const portfolioItems = [
       id: 8,
       title: 'Introduction to JavaScript Algorithms',
       author: 'mahelbee',
+      date: '2024-05-11',
       icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968292.png',
       images: [
         'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -131,6 +139,7 @@ export const portfolioItems = [
       id: 9,
       title: 'Urban Farming: Growing in Small Spaces',
       author: 'mahelbee',
+      date: '2024-06-22',
       icon: 'https://cdn-icons-png.flaticon.com/512/2382/2382428.png',
       images: [
         'https://images.pexels.com/photos/2519374/pexels-photo-2519374.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -147,6 +156,7 @@ export const portfolioItems = [
       id: 10,
       title: 'Exploring Neural Networks',
       author: 'mahelbee',
+      date: '2024-07-30',
       icon: 'https://cdn-icons-png.flaticon.com/512/1055/1055685.png',
       images: [
         'https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -163,6 +173,7 @@ export const portfolioItems = [
       id: 11,
       title: 'The Science of Composting',
       author: 'mahelbee',
+      date: '2024-08-05',
       icon: 'https://cdn-icons-png.flaticon.com/512/2382/2382428.png',
       images: [
         'https://images.pexels.com/photos/3952048/pexels-photo-3952048.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -179,6 +190,7 @@ export const portfolioItems = [
       id: 12,
       title: 'Advanced CSS: Animations and Transitions',
       author: 'mahelbee',
+      date: '2024-09-19',
       icon: 'https://cdn-icons-png.flaticon.com/512/1051/1051277.png',
       images: [
         'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=600',
