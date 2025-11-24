@@ -69,11 +69,6 @@ const Footer = () => {
                   Projects
                 </a>
               </li>
-              <li>
-                <a href="/blog" className="text-slate-300 hover:text-white transition-colors">
-                  Blog
-                </a>
-              </li>
             </ul>
           </div>
 

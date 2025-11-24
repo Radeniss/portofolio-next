@@ -29,7 +29,6 @@ const Navbar = () => {
     { name: 'Portfolio', path: '/portfolio' },
     { name: 'Projects', path: '/projects' },
     { name: 'Certificates', path: '/certificates' },
-    { name: 'Blog', path: '/blog' },
   ]
 
   const isActive = (path: string) => pathname === path
