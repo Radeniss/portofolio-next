@@ -9,7 +9,7 @@ import AnimatedContent from '../app/AnimatedContent';
 export default function PortfolioGrid({ portofolioItems }) {
     // const [isExpanded, setIsExpanded] = useState(false);S
     const titleLimit = 50;
-    const characterLimit = 250;
+    const characterLimit = 200;
 
     return (
         <>
@@ -47,7 +47,7 @@ export default function PortfolioGrid({ portofolioItems }) {
                             >
                                 <div className='h-full flex flex-col'>
                                     {/* Bagian Gambar */}
-                                    <div className='relative w-full aspect-square'>
+                                    <div className='relative w-full h-48'>
                                         <Image
                                             src={item.images[0]}
                                             alt={item.title}
