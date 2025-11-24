@@ -27,7 +27,7 @@ const PortfolioSection = ({ text, imageUrl, imageAlt, reverse = false }) => (
                 <p className="text-gray-300">{text}</p>
             </div>
         </div>
-        <div className="md:w-1/6"> 
+        <div className="md:w-1/2"> 
             <div className="relative w-full aspect-square rounded-lg overflow-hidden shadow-lg"> 
                 <Image
                     src={imageUrl}
