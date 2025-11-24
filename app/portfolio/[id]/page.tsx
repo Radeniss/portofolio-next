@@ -20,18 +20,14 @@ export async function generateMetadata({ params }: PortfolioDetailProps) {
   }
 }
 
-// 📐 Komponen PortfolioSection: Gambar Diperkecil menjadi 1/6 Lebar dan tetap persegi
 const PortfolioSection = ({ text, imageUrl, imageAlt, reverse = false }) => (
-    // Lebar container gambar 1/6 (md:w-1/6), teks 5/6 (md:w-5/6)
     <div className={`flex flex-col md:flex-row items-center gap-8 ${reverse ? 'md:flex-row-reverse' : ''}`}>
-        {/* Kontainer Teks (Diperbesar menjadi 5/6) */}
         <div className="md:w-5/6"> 
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-8">
                 <p className="text-gray-300">{text}</p>
             </div>
         </div>
-        {/* Kontainer Gambar (Diperkecil menjadi 1/6 dan Persegi Sempurna) */}
-        <div className="md:w-1/2"> 
+        <div className="md:w-1/6"> 
             <div className="relative w-full aspect-square rounded-lg overflow-hidden shadow-lg"> 
                 <Image
                     src={imageUrl}
