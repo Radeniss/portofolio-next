@@ -1,3 +1,11 @@
+Proyek ini merupakan wadah bagi sifat saya yang absurd dan tidak konvensional. Saya sengaja menghindari struktur desain yang terlalu logis atau terikat standar industri, memilih untuk memprioritaskan pengalaman visual yang berani dan interaksi yang tidak terduga. Setiap elemen, animasi, dan transisi dipilih bukan hanya karena fungsinya, tetapi karena ia menambah lapisan keanehan dan keunikan pada portofolio ini. Tujuannya sederhana: menunjukkan kemampuan teknis sambil merayakan kebebasan kreatif tanpa batas.
+
+This project serves as a vessel for my absurd and unconventional nature. I deliberately avoided overly logical design structures or adhering to industry standards, choosing instead to prioritize bold visual experiences and unexpected interactions. Every element, animation, and transition was chosen not merely for its function, but because it adds a layer of oddity and uniqueness to this portfolio. The goal is simple: to demonstrate technical capability while celebrating limitless creative freedom.
+
+Kono purojekuto wa, watashi no fujōri de katayaburi na seishitsu o hyōgen suru tame no utsuwa to shite kinō shiteimasu. Watashi wa itoteki ni, ronriteki sugiru dezain kōzō ya gyōkai hyōjun ni koshitsusuru koto o sake, kawari ni daitan na shikaku taiken to yokisenu intarakushon o yūsen suru koto o sentaku shimashita. Subete no yōso, animēshon, toranjishon wa, sono kinōsei dake de naku, kono pōtoforio ni kimyōsa to dokujisei no sō o kuwaeru tame ni erabareteimasu. Mokuteki wa shinpuru desu. Gijutsuteki na nōryoku o shimesu to dōji ni, mugen no sōzōteki na jiyū o shukufuku suru koto desu.
+
+---
+
 # 🚀 Portofolio Pribadi - Next.js & Prisma
 
 Sebuah website portofolio pribadi yang modern dan dinamis, dibangun dengan teknologi web terkini untuk menampilkan proyek, sertifikat, dan keahlian secara elegan.
@@ -21,17 +29,12 @@ Sebuah website portofolio pribadi yang modern dan dinamis, dibangun dengan tekno
 
 ---
 
-## 🛠️ Teknologi yang Digunakan
+## 🌟 Proyek Unggulan: "Learn Together"
 
-Berikut adalah penjelasan singkat mengenai alat dan teknologi utama yang menjadi fondasi proyek ini:
+Salah satu proyek yang paling berkesan bagi saya adalah "Learn Together". Ini bukan hanya tentang teknis, tetapi tentang kebersamaan dan antusiasme untuk belajar.
 
-| Ikon                                                                                                                  | Teknologi         | Peran dalam Proyek                                                                                                          |
-| :-------------------------------------------------------------------------------------------------------------------- | :---------------- | :-------------------------------------------------------------------------------------------------------------------------- |
-| ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white)                | **Next.js**       | Kerangka kerja React yang menyediakan rendering sisi server (SSR), pembuatan situs statis (SSG), dan arsitektur App Router. |
-| ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)                     | **React**         | Pustaka JavaScript untuk membangun komponen antarmuka pengguna (UI) yang interaktif dan dapat digunakan kembali.            |
-| ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)       | **TypeScript**    | Superset dari JavaScript yang menambahkan tipe data statis, meningkatkan kualitas kode dan mengurangi bug.                  |
-| ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white) | **Tailwind CSS**  | Kerangka kerja CSS _utility-first_ untuk membangun desain kustom dengan cepat tanpa meninggalkan HTML Anda.                 |
-| ![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white)                   | **Prisma**        | ORM (Object-Relational Mapping) modern untuk Node.js dan TypeScript yang menyederhanakan interaksi dengan database.         |
-| ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white)       | **PostgreSQL**    | Sistem database relasional objek yang kuat dan canggih, digunakan sebagai penyimpan data utama.                             |
-| ![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=flat-square&logo=framer&logoColor=white)     | **Framer Motion** | Pustaka animasi untuk React yang memudahkan pembuatan animasi yang kompleks dan performan.                                  |
-| ![Lucide React](https://img.shields.io/badge/Icons-Lucide-5A67D8?style=flat-square)                                   | **Lucide React**  | Pustaka ikon yang komprehensif dan mudah disesuaikan yang digunakan di seluruh antarmuka.                                   |
+> Proyek "Learn Together" adalah inisiatif berbasis komunitas yang bertujuan untuk menumbuhkan kecintaan terhadap pertanian di kalangan siswa. Proyek ini berfokus pada pengajaran cara menanam semangka, dari biji hingga panen. Para siswa sangat antusias, dan banyak dari mereka yang benar-benar ingin mendengarkan dan mencoba.
+>
+> Minggu kedua didedikasikan untuk merawat tanaman semangka, di mana kami belajar tentang pentingnya penyiraman, pemupukan, dan pengendalian hama secara organik. Ini adalah minggu pembelajaran intensif dan aplikasi praktis.
+>
+> Pada minggu terakhir, kami memanen semangka. Itu adalah momen yang menggembirakan bagi semua orang yang terlibat. Para siswa bangga dengan kerja keras mereka dan menikmati manisnya rasa kesuksesan. Proyek ini adalah contoh bagus bagaimana belajar bisa menjadi menyenangkan dan bermanfaat.
