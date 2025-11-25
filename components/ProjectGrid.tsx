@@ -65,7 +65,7 @@ export default function ProjectGrid({ projects }) { // Removed 'featured' prop
                                 </p>
                                 
                                 <div className="flex flex-wrap gap-2 mb-6">
-                                    {project.technologies.slice(0, 4).map((tech) => ( // Always show first 4 technologies
+                                    {(project.technologies || []).slice(0, 4).map((tech) => ( // Always show first 4 technologies
                                         <span 
                                             key={tech} 
                                             className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm hover:bg-primary-100 hover:text-primary-700 transition-colors"
@@ -73,7 +73,7 @@ export default function ProjectGrid({ projects }) { // Removed 'featured' prop
                                             {tech}
                                         </span>
                                     ))}
-                                    {project.technologies.length > 4 && (
+                                    {(project.technologies || []).length > 4 && (
                                         <span className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm">
                                             +{project.technologies.length - 4} more
                                         </span>
