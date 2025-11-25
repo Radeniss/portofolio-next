@@ -84,7 +84,7 @@ export default function ProjectGrid({ projects }) { // Removed 'featured' prop
                                     <div className="flex items-center space-x-4">
                                         <span className="flex items-center">
                                             <Calendar className="h-4 w-4 mr-1" />
-                                            {new Date(project.date).toLocaleDateString('en-CA')}
+                                            {new Date(project.createdAt).toLocaleDateString('en-CA')}
                                         </span>
                                     </div>
                                     <div className="flex items-center space-x-3">

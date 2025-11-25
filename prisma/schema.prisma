@@ -13,7 +13,13 @@ model Project {
   id          Int      @id @default(autoincrement())
   title       String
   description String
-  imageUrl    String
+  imageUrl    String?
+  status      String
+  technologies String[]
+  stars       Int
+  forks       Int
+  githubUrl   String?
+  liveUrl     String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }

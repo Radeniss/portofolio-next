@@ -1,89 +1,20 @@
 import Link from 'next/link'
 import ProjectGrid from '@/components/ProjectGrid'
+import { prisma } from '@/lib/prisma'
 
 export const metadata = {
   title: 'Projects - mahelbee',
   description: 'Explore my personal projects and open source contributions.',
 }
 
-export default function Projects() {
-  const projects = [
-    {
-      id: 1,
-      title: 'Next.js E-Commerce Starter',
-      description: 'A complete e-commerce solution built with Next.js 14, featuring modern design, payment integration, and admin dashboard.',
-      longDescription: 'This comprehensive e-commerce starter kit includes user authentication, product management, shopping cart functionality, Stripe payment integration, and a complete admin dashboard. Built with performance and SEO in mind.',
-      technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Prisma', 'PostgreSQL', 'Stripe'],
-      status: 'Active',
-      date: '2024-01-15',
-      duration: '3 months',
-      stars: 245,
-      forks: 67,
-      githubUrl: 'https://github.com/alexjohnson/nextjs-ecommerce',
-      liveUrl: 'https://nextjs-ecommerce-demo.vercel.app',
-      featured: true
+export const revalidate = 60
+
+export default async function Projects() {
+  const projects = await prisma.project.findMany({
+    orderBy: {
+      createdAt: 'desc',
     },
-    {
-      id: 2,
-      title: 'React Component Library',
-      description: 'A reusable component library built with React and TypeScript, featuring accessible and customizable UI components.',
-      longDescription: 'A comprehensive collection of reusable React components with full TypeScript support, accessibility features, and extensive customization options. Includes Storybook documentation and automated testing.',
-      technologies: ['React', 'TypeScript', 'Storybook', 'Jest', 'CSS Modules'],
-      status: 'Maintenance',
-      date: '2023-11-08',
-      duration: '4 months',
-      stars: 189,
-      forks: 34,
-      githubUrl: 'https://github.com/alexjohnson/react-ui-lib',
-      liveUrl: 'https://react-ui-lib.netlify.app',
-      featured: true
-    },
-    {
-      id: 3,
-      title: 'Task Management API',
-      description: 'A RESTful API for task management with user authentication, real-time updates, and comprehensive documentation.',
-      longDescription: 'A robust Node.js API featuring JWT authentication, real-time WebSocket connections, comprehensive CRUD operations, and automatically generated API documentation with Swagger.',
-      technologies: ['Node.js', 'Express', 'MongoDB', 'Socket.io', 'JWT', 'Swagger'],
-      status: 'Active',
-      date: '2023-09-20',
-      duration: '2 months',
-      stars: 156,
-      forks: 45,
-      githubUrl: 'https://github.com/alexjohnson/task-api',
-      liveUrl: 'https://task-api-docs.herokuapp.com',
-      featured: false
-    },
-    {
-      id: 4,
-      title: 'Weather Dashboard',
-      description: 'A responsive weather application with location-based forecasts, interactive maps, and historical data visualization.',
-      longDescription: 'An interactive weather dashboard featuring current conditions, 7-day forecasts, interactive weather maps, and historical weather data visualization with charts and graphs.',
-      technologies: ['Vue.js', 'Chart.js', 'Leaflet', 'Weather API', 'PWA'],
-      status: 'Complete',
-      date: '2023-07-12',
-      duration: '1 month',
-      stars: 98,
-      forks: 23,
-      githubUrl: 'https://github.com/alexjohnson/weather-dashboard',
-      liveUrl: 'https://weather-dashboard-vue.netlify.app',
-      featured: false
-    },
-    {
-      id: 5,
-      title: 'Portfolio Template',
-      description: 'A modern, responsive portfolio template built with Next.js and Tailwind CSS for developers and designers.',
-      longDescription: 'A fully responsive portfolio template featuring dark/light mode, smooth animations, contact forms, blog integration, and optimal performance. Perfect for developers and designers.',
-      technologies: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'MDX', 'Vercel'],
-      status: 'Active',
-      date: '2023-05-30',
-      duration: '6 weeks',
-      stars: 312,
-      forks: 89,
-      githubUrl: 'https://github.com/alexjohnson/portfolio-template',
-      liveUrl: 'https://portfolio-template-demo.vercel.app',
-      featured: true
-    }
-  ]
+  })
 
   return (
     <div className="pt-16">
