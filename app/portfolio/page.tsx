@@ -1,14 +1,18 @@
-import Image from 'next/image'
-import { ExternalLink, Github } from 'lucide-react'
 import PortfolioGrid from '@/components/PortfolioGrid'
-import { portfolioItems } from '@/lib/portfolioData'
+import { prisma } from '@/lib/prisma'
 
 export const metadata = {
   title: 'Portfolio - mahelbee',
   description: 'View my latest web development projects and creative work.',
 }
 
-export default function Portfolio() {
+export default async function Portfolio() {
+  const portfolioItems = await prisma.portfolioItem.findMany({
+    orderBy: {
+      date: 'desc',
+    },
+  })
+
   return (
     <div className="pt-16">
       {/* Header */}
