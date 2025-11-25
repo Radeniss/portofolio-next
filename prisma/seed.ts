@@ -12,8 +12,11 @@ async function main() {
   console.log(`Start seeding ...`);
 
   for (const item of portfolioItems) {
-    const portfolioItem = await prisma.portfolioItem.create({
-      data: {
+    const portfolioItem = await prisma.portfolioItem.upsert({
+      where: { id: item.id || -1 }, // Use a non-existent ID for creation
+      update: {}, // No updates needed if it exists
+      create: {
+        id: item.id,
         title: item.title,
         author: item.author,
         date: new Date(item.date),
@@ -26,7 +29,7 @@ async function main() {
         },
       },
     });
-    console.log(`Created portfolio item with id: ${portfolioItem.id}`);
+    console.log(`Upserted portfolio item with id: ${portfolioItem.id}`);
   }
 
   console.log(`Seeding finished.`);
