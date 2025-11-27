@@ -1,8 +1,8 @@
-// File: F:\github\Javascript\portofolio-next\app\portfolio\page.tsx
-import * as entry from '../../../../app/portfolio/page.js'
+// File: F:\github\Javascript\portofolio-next\app\projects\page.tsx
+import * as entry from '../../../../app/projects/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
-type TEntry = typeof import('../../../../app/portfolio/page.js')
+type TEntry = typeof import('../../../../app/projects/page.js')
 
 // Check that the entry is a valid entry
 checkFields<Diff<{
