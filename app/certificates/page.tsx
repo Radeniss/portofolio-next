@@ -1,91 +1,19 @@
 import CertificateGrid from '@/components/CertificateGrid'
+import { prisma } from '@/lib/prisma'
 
 export const metadata = {
   title: 'Certificates - mahelbee',
   description: 'Professional certifications and achievements in web development and design.',
 }
 
-export default function Certificates() {
-  const certificates = [
-    {
-      id: 1,
-      title: 'AWS Certified Solutions Architect',
-      issuer: 'Amazon Web Services',
-      date: '2024-02-15',
-      validUntil: '2027-02-15',
-      credentialId: 'AWS-SAA-2024-001234',
-      image: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=400',
-      description: 'Demonstrates expertise in designing distributed systems on AWS platform',
-      skills: ['Cloud Architecture', 'AWS Services', 'Security', 'Cost Optimization'],
-      verifyUrl: '#',
-      downloadUrl: '#',
+export const revalidate = 3600 // Revalidate every hour
+
+export default async function Certificates() {
+  const certificates = await prisma.certificate.findMany({
+    orderBy: {
+      date: 'desc',
     },
-    {
-      id: 2,
-      title: 'Professional Scrum Master I (PSM I)',
-      issuer: 'Scrum.org',
-      date: '2023-11-20',
-      validUntil: 'Lifetime',
-      credentialId: 'PSM-2023-567890',
-      image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400',
-      description: 'Validates knowledge of Scrum framework and ability to support teams',
-      skills: ['Scrum Framework', 'Agile Methodologies', 'Team Leadership', 'Product Management'],
-      verifyUrl: '#',
-      downloadUrl: '#',
-    },
-    {
-      id: 3,
-      title: 'Google Cloud Professional Developer',
-      issuer: 'Google Cloud',
-      date: '2023-09-10',
-      validUntil: '2025-09-10',
-      credentialId: 'GCP-DEV-2023-112233',
-      image: 'https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=400',
-      description: 'Expertise in developing scalable applications on Google Cloud Platform',
-      skills: ['GCP Services', 'Container Orchestration', 'DevOps', 'Microservices'],
-      verifyUrl: '#',
-      downloadUrl: '#',
-    },
-    {
-      id: 4,
-      title: 'Meta Frontend Developer Professional',
-      issuer: 'Meta (Coursera)',
-      date: '2023-06-30',
-      validUntil: 'Lifetime',
-      credentialId: 'META-FE-2023-445566',
-      image: 'https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=400',
-      description: 'Comprehensive frontend development skills including React and modern practices',
-      skills: ['React', 'JavaScript', 'HTML/CSS', 'UI/UX Design'],
-      verifyUrl: '#',
-      downloadUrl: '#',
-    },
-    {
-      id: 5,
-      title: 'MongoDB Developer Certification',
-      issuer: 'MongoDB University',
-      date: '2023-04-15',
-      validUntil: '2025-04-15',
-      credentialId: 'MONGO-DEV-2023-778899',
-      image: 'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=400',
-      description: 'Proficiency in MongoDB database design, development, and administration',
-      skills: ['MongoDB', 'Database Design', 'Query Optimization', 'Data Modeling'],
-      verifyUrl: '#',
-      downloadUrl: '#',
-    },
-    {
-      id: 6,
-      title: 'Docker Certified Associate',
-      issuer: 'Docker Inc.',
-      date: '2023-02-28',
-      validUntil: '2025-02-28',
-      credentialId: 'DOCKER-CA-2023-334455',
-      image: 'https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=400',
-      description: 'Validates skills in containerization and Docker ecosystem management',
-      skills: ['Docker', 'Containerization', 'DevOps', 'CI/CD'],
-      verifyUrl: '#',
-      downloadUrl: '#',
-    }
-  ]
+  })
 
   return (
     <div className="pt-16">
