@@ -1,5 +1,5 @@
 {
-  "/projects/page": "app/projects/page.js",
-  "/page": "app/page.js",
-  "/login/page": "app/login/page.js"
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/login/page": "app/login/page.js",
+  "/projects/page": "app/projects/page.js"
 }

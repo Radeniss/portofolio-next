@@ -22,7 +22,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { toast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { Project } from "./columns";
 
 interface CellActionsProps {
@@ -31,6 +31,7 @@ interface CellActionsProps {
 
 export const CellActions: React.FC<CellActionsProps> = ({ data }) => {
   const router = useRouter();
+  const { toast } = useToast();
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 

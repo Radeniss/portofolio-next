@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import * as z from "zod";
 
 import { ProjectForm } from "./project-form";
-import { toast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
   title: z.string().min(2),
@@ -20,6 +20,7 @@ type ProjectFormValues = z.infer<typeof formSchema>;
 
 export default function NewProjectPage() {
   const router = useRouter();
+  const { toast } = useToast();
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async (values: ProjectFormValues) => {

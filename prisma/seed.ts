@@ -3,6 +3,7 @@ import { PrismaClient } from '@prisma/client';
 import { portfolioItems } from '../lib/portfolioData';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { Pool } from 'pg';
+import * as bcrypt from 'bcrypt';
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 const adapter = new PrismaPg(pool);
@@ -156,12 +157,28 @@ async function main() {
   console.log(`Start seeding ...`);
 
   // Clear existing data to avoid duplicates on re-seed
+  await prisma.user.deleteMany({});
+  console.log('Deleted existing user data.');
   await prisma.certificate.deleteMany({});
   console.log('Deleted existing certificate data.');
   await prisma.project.deleteMany({});
   console.log('Deleted existing project data.');
   await prisma.portfolioItem.deleteMany({});
   console.log('Deleted existing portfolio data.');
+
+  // Seed Admin User
+  console.log('Seeding admin user...');
+  const hashedPassword = await bcrypt.hash('password123', 12);
+  await prisma.user.upsert({
+    where: { email: 'admin@example.com' },
+    update: {},
+    create: {
+      email: 'admin@example.com',
+      name: 'Admin User',
+      password: hashedPassword,
+    },
+  });
+  console.log('Admin user created.');
 
 
   for (const item of portfolioItems) {
