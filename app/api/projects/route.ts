@@ -1,59 +1,49 @@
-// app/api/projects/route.ts
-import { NextRequest, NextResponse } from 'next/server';
-import prisma from '@/lib/prisma';
-import { getSession } from '@/lib/session';
+import { NextResponse } from "next/server";
+import * as z from "zod";
+import prisma from "@/lib/prisma";
 
-// GET all projects
-export async function GET(request: NextRequest) {
+// Schema for validation, should match the form's schema
+const projectSchema = z.object({
+  title: z.string().min(2),
+  description: z.string().min(10),
+  status: z.string(),
+  technologies: z.string(), // Received as a comma-separated string
+  githubUrl: z.string().url().optional().or(z.literal('')),
+  liveUrl: z.string().url().optional().or(z.literal('')),
+});
+
+export async function POST(req: Request) {
   try {
-    const projects = await prisma.project.findMany({
-      orderBy: {
-        createdAt: 'desc',
-      },
-    });
-    return NextResponse.json(projects);
-  } catch (error) {
-    console.error('Failed to fetch projects:', error);
-    return NextResponse.json({ message: 'Failed to fetch projects' }, { status: 500 });
-  }
-}
+    const body = await req.json();
+    const validation = projectSchema.safeParse(body);
 
-// CREATE a new project
-export async function POST(request: NextRequest) {
-  const session = await getSession();
-  if (!session) {
-    return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
-  }
-
-  try {
-    const body = await request.json();
-    const { 
-      title, description, imageUrl, status, technologies, 
-      stars, forks, githubUrl, liveUrl 
-    } = body;
-
-    // Basic validation
-    if (!title || !description || !status || !technologies) {
-      return NextResponse.json({ message: 'Missing required fields' }, { status: 400 });
+    if (!validation.success) {
+      return new NextResponse("Invalid data", { status: 400 });
     }
+
+    const { title, description, status, technologies, githubUrl, liveUrl } = validation.data;
+
+    // Convert comma-separated string to array of strings
+    const techArray = technologies.split(',').map(tech => tech.trim());
 
     const newProject = await prisma.project.create({
       data: {
         title,
         description,
-        imageUrl,
         status,
-        technologies,
-        stars: Number(stars) || 0,
-        forks: Number(forks) || 0,
-        githubUrl,
-        liveUrl,
+        technologies: techArray,
+        githubUrl: githubUrl || null,
+        liveUrl: liveUrl || null,
+        // These fields have defaults or are not required by the form
+        imageUrl: null, 
+        stars: 0,
+        forks: 0,
       },
     });
 
     return NextResponse.json(newProject, { status: 201 });
   } catch (error) {
-    console.error('Failed to create project:', error);
-    return NextResponse.json({ message: 'Failed to create project' }, { status: 500 });
+    console.error("[PROJECTS_POST]", error);
+    return new NextResponse("Internal error", { status: 500 });
   }
 }
