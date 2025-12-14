@@ -1,60 +1,50 @@
-// app/api/certificates/route.ts
-import { NextRequest, NextResponse } from 'next/server';
-import prisma from '@/lib/prisma';
-import { getSession } from '@/lib/session';
+import { NextResponse } from "next/server";
+import * as z from "zod";
+import { prisma } from "@/lib/prisma";
 
-// GET all certificates
-export async function GET(request: NextRequest) {
+const certificateSchema = z.object({
+  title: z.string().min(2),
+  issuer: z.string().min(2),
+  date: z.string(), // Will be a string from the form, converted to Date
+  description: z.string().min(10),
+  skills: z.string(), // Comma-separated
+  credentialId: z.string().optional(),
+  verifyUrl: z.string().url().optional().or(z.literal('')),
+});
+
+export async function POST(req: Request) {
   try {
-    const certificates = await prisma.certificate.findMany({
-      orderBy: {
-        date: 'desc',
-      },
-    });
-    return NextResponse.json(certificates);
-  } catch (error) {
-    console.error('Failed to fetch certificates:', error);
-    return NextResponse.json({ message: 'Failed to fetch certificates' }, { status: 500 });
-  }
-}
+    const body = await req.json();
+    const validation = certificateSchema.safeParse(body);
 
-// CREATE a new certificate
-export async function POST(request: NextRequest) {
-  const session = await getSession();
-  if (!session) {
-    return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
-  }
-
-  try {
-    const body = await request.json();
-    const { 
-      title, issuer, date, validUntil, credentialId, image, 
-      description, skills, verifyUrl, downloadUrl 
-    } = body;
-
-    // Basic validation
-    if (!title || !issuer || !date || !credentialId || !description || !skills) {
-      return NextResponse.json({ message: 'Missing required fields' }, { status: 400 });
+    if (!validation.success) {
+      console.error("Zod validation failed:", validation.error);
+      return new NextResponse("Invalid data", { status: 400 });
     }
+
+    const { title, issuer, date, description, skills, credentialId, verifyUrl } = validation.data;
+
+    const skillsArray = skills.split(',').map(skill => skill.trim());
 
     const newCertificate = await prisma.certificate.create({
       data: {
         title,
         issuer,
         date: new Date(date),
-        validUntil,
-        credentialId,
-        image,
         description,
-        skills,
-        verifyUrl,
-        downloadUrl,
+        skills: skillsArray,
+        credentialId: credentialId || "",
+        verifyUrl: verifyUrl || null,
+        // Default/nullable fields
+        validUntil: null, 
+        image: null,
+        downloadUrl: null,
       },
     });
 
     return NextResponse.json(newCertificate, { status: 201 });
   } catch (error) {
-    console.error('Failed to create certificate:', error);
-    return NextResponse.json({ message: 'Failed to create certificate' }, { status: 500 });
+    console.error("[CERTIFICATES_POST]", error);
+    return new NextResponse("Internal error", { status: 500 });
   }
 }

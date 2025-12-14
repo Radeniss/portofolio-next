@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import * as z from "zod";
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
 
 // Schema for validation, should match the form's schema
 const projectSchema = z.object({

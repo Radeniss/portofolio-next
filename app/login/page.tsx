@@ -41,11 +41,12 @@ export default function LoginPage() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setLoading(true);
     const result = await signIn("credentials", {
-      redirect: false,
       email: values.email,
       password: values.password,
+      callbackUrl: "/admin", // Explicitly tell it where to go on success
     });
 
+    // This part will only be reached if there is an error
     setLoading(false);
 
     if (result?.error) {
@@ -54,12 +55,6 @@ export default function LoginPage() {
         description: "Invalid email or password. Please try again.",
         variant: "destructive",
       });
-    } else if (result?.ok) {
-      toast({
-        title: "Login Successful",
-      });
-      router.push("/admin"); // Redirect to admin dashboard
-      router.refresh();
     }
   }
 

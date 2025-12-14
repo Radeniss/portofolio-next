@@ -1,51 +1,45 @@
-// app/api/portfolio/route.ts
-import { NextRequest, NextResponse } from 'next/server';
-import prisma from '@/lib/prisma';
-import { getSession } from '@/lib/session';
+import { NextResponse } from "next/server";
+import * as z from "zod";
+import { prisma } from "@/lib/prisma";
 
-export async function GET(request: NextRequest) {
+const portfolioSchema = z.object({
+  title: z.string().min(2),
+  author: z.string().min(2),
+  date: z.string(),
+  icon: z.string().min(1),
+  images: z.string(), // Comma-separated
+  desc: z.string(),   // Semicolon-separated for descriptions
+});
+
+export async function POST(req: Request) {
   try {
-    const portfolioItems = await prisma.portfolioItem.findMany({
-      orderBy: {
-        date: 'desc',
-      },
-    });
-    return NextResponse.json(portfolioItems);
-  } catch (error) {
-    console.error('Failed to fetch portfolio items:', error);
-    return NextResponse.json({ message: 'Failed to fetch portfolio items' }, { status: 500 });
-  }
-}
+    const body = await req.json();
+    const validation = portfolioSchema.safeParse(body);
 
-export async function POST(request: NextRequest) {
-  const session = await getSession();
-  if (!session) {
-    return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
-  }
-
-  try {
-    const body = await request.json();
-    const { title, author, date, icon, images, desc } = body;
-
-    // Basic validation
-    if (!title || !author || !date || !icon || !images || !desc) {
-      return NextResponse.json({ message: 'Missing required fields' }, { status: 400 });
+    if (!validation.success) {
+      console.error("Zod validation failed:", validation.error);
+      return new NextResponse("Invalid data", { status: 400 });
     }
 
-    const newItem = await prisma.portfolioItem.create({
+    const { title, author, date, icon, images, desc } = validation.data;
+
+    const imagesArray = images.split(',').map(item => item.trim());
+    const descArray = desc.split(';').map(item => item.trim()); // Using semicolon for separation
+
+    const newPortfolioItem = await prisma.portfolioItem.create({
       data: {
         title,
         author,
         date: new Date(date),
         icon,
-        images,
-        desc,
+        images: imagesArray,
+        desc: descArray,
       },
     });
 
-    return NextResponse.json(newItem, { status: 201 });
+    return NextResponse.json(newPortfolioItem, { status: 201 });
   } catch (error) {
-    console.error('Failed to create portfolio item:', error);
-    return NextResponse.json({ message: 'Failed to create portfolio item' }, { status: 500 });
+    console.error("[PORTFOLIO_POST]", error);
+    return new NextResponse("Internal error", { status: 500 });
   }
 }
