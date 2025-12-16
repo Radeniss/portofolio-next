@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { portfolioItems } from '@/lib/portfolioData'
+import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
 import AnimatedContent from '../../AnimatedContent'
 
@@ -9,8 +9,13 @@ type PortfolioDetailProps = {
   }
 }
 
+export const revalidate = 60; // Revalidate data every 60 seconds
+
 export async function generateMetadata({ params }: PortfolioDetailProps) {
-  const item = portfolioItems.find(p => p.id.toString() === params.id)
+  const item = await prisma.portfolioItem.findUnique({
+    where: { id: parseInt(params.id) }
+  });
+
   if (!item) {
     return {
       title: 'Portfolio Item Not Found'
@@ -42,8 +47,10 @@ const PortfolioSection = ({ text, imageUrl, imageAlt, reverse = false }) => (
     </div>
 )
 
-export default function PortfolioDetail({ params }: PortfolioDetailProps) {
-  const item = portfolioItems.find(p => p.id.toString() === params.id)
+export default async function PortfolioDetail({ params }: PortfolioDetailProps) {
+  const item = await prisma.portfolioItem.findUnique({
+    where: { id: parseInt(params.id) }
+  });
 
   if (!item) {
     return (
@@ -81,7 +88,7 @@ export default function PortfolioDetail({ params }: PortfolioDetailProps) {
                 />
                 <div>
                   <p className="font-semibold text-white">{item.author}</p>
-                  <p className="text-sm text-gray-400">Author | {item.date}</p>
+                  <p className="text-sm text-gray-400">Author | {new Date(item.date).toLocaleDateString('en-CA')}</p>
                 </div>
               </div>
             </header>

@@ -6,6 +6,8 @@ export const metadata = {
   description: 'View my latest web development projects and creative work.',
 }
 
+export const revalidate = 60; // Revalidate data every 60 seconds
+
 export default async function Portfolio() {
   const portfolioItems = await prisma.portfolioItem.findMany({
     orderBy: {

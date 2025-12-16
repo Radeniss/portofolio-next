@@ -37,10 +37,30 @@
       "static/chunks/main-app.js",
       "static/chunks/app/(main)/portfolio/[id]/page.js"
     ],
-    "/_not-found/page": [
+    "/admin/projects/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/chunks/app/admin/projects/page.js"
+    ],
+    "/admin/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/admin/layout.js"
+    ],
+    "/admin/portfolio/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/admin/portfolio/page.js"
+    ],
+    "/admin/certificates/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/admin/certificates/page.js"
+    ],
+    "/admin/portfolio/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/admin/portfolio/[id]/page.js"
     ]
   }
 }
