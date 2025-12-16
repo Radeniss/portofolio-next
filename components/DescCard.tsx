@@ -1,8 +1,8 @@
 'use client';
 
 import {useState} from 'react';
-import PixelTransition from '../app/PixelTransition';
-import AnimatedContent from '../app/AnimatedContent';
+import PixelTransition from '../app/(main)/PixelTransition';
+import AnimatedContent from '../app/(main)/AnimatedContent';
 import GlareHover from './GlareHover';
 
 

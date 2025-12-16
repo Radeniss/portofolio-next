@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import GlareHover from './GlareHover';
-import AnimatedContent from '../app/AnimatedContent';
+import AnimatedContent from '../app/(main)/AnimatedContent';
 
 export default function PortfolioGrid({ portofolioItems }) {
     // const [isExpanded, setIsExpanded] = useState(false);S

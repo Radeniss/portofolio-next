@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { portfolioItems } from '@/lib/portfolioData'
 import Link from 'next/link'
-import AnimatedContent from '@/app/AnimatedContent'
+import AnimatedContent from '../../AnimatedContent'
 
 type PortfolioDetailProps = {
   params: {

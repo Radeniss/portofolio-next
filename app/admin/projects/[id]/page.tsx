@@ -1,4 +1,4 @@
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
 import { EditProjectClient } from "./edit-client";
 
 interface EditProjectPageProps {

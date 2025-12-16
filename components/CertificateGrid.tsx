@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { Award, Calendar, ExternalLink, Download } from 'lucide-react'
-import AnimatedContent from '@/app/AnimatedContent'
+import AnimatedContent from '@/app/(main)/AnimatedContent'
 import GlareHover from '@/components/GlareHover'
 
 export default function CertificateGrid({ certificates }) {

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { ArrowRight, Download, Code, Palette, Globe } from 'lucide-react'
 import SplitText from './SplitText'
 import TiltedCard from './TilteCard';
-import DescCard from '../components/DescCard';
+import DescCard from '../../components/DescCard';
 import SkillCard from './SkillCard';
 import { useState } from 'react';
 import AnimatedContent from './AnimatedContent';

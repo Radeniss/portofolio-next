@@ -1,7 +1,7 @@
 'use client'
 
 import { Calendar, Clock, Star } from 'lucide-react'
-import AnimatedContent from '@/app/AnimatedContent'
+import AnimatedContent from '@/app/(main)/AnimatedContent'
 import GlareHover from '@/components/GlareHover'
 
 const getStatusColor = (status) => {

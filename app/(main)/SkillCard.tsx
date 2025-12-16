@@ -1,7 +1,7 @@
 // components/SkillCard.jsx
 import { Code, Globe, Palette } from 'lucide-react'; 
 import AnimatedContent from './AnimatedContent';
-import GlareHover from '../components/GlareHover';
+import GlareHover from '../../components/GlareHover';
 
 
 export default function SkillCard({ icon: Icon, name, desc, index }) {
